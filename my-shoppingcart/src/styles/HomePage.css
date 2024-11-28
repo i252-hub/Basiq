@@ -1,0 +1,56 @@
+@import './root.css';
+
+nav{
+    display: flex !important;
+    justify-content:space-around;
+    align-items: center;
+    align-content: center;
+    align-self: center;
+    padding: 1em;
+}
+
+ul{
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+li{
+    list-style: none;
+   
+}
+
+a{
+    text-decoration: none;
+    color: var(--TextandBtn-color) !important;
+}
+
+body{
+    background: var(--BgandBtntext-color);
+    color: var(--TextandBtn-color) !important;
+    font-family: var(--text-fontfamily);
+    font-weight: var(--font-weight);
+}
+
+.Logo{
+    font-size: 2em;
+}
+
+.Links{
+    font-size: 1.3em;
+}
+
+.jewelry{
+    max-width: 100%;
+    position: fixed;
+    height: auto;
+}
+
+.pic{
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+}
+
+
+

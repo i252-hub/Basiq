@@ -1,0 +1,42 @@
+.men, .women, .accessory{
+    width: 50%;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.men:hover, .women:hover, .accessory:hover{
+    transform: scale(1.2);
+}
+
+.mens, .womens, .accessories{
+    display: flex;
+    justify-content: center;
+}
+
+h1{
+    display: flex;
+    justify-content: center;
+    padding-top: 3rem;
+}
+.productListMen, .productListWomen, .productListAccess{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+    padding-top: 5em;
+    max-width: 100%;
+}
+
+section{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.products{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}

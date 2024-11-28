@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Poiret+One&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root{
+--BgandBtntext-color: rgb(255, 255, 255);
+--TextandBtn-color: rgb(29, 23, 23);
+--text-fontfamily: "Poiret One", sans-serif;
+--font-weight: 400;
+}
