@@ -8,9 +8,9 @@
     transform: scale(1.2);
 }
 
-.mens, .womens, .accessories{
-    display: flex;
-    justify-content: center;
+.mens, .womens, .accessories, a{
+    display: flex !important;
+    justify-content: center !important;
 }
 
 h1{
@@ -19,8 +19,8 @@ h1{
     padding-top: 3rem;
 }
 .productListMen, .productListWomen, .productListAccess{
-    display: flex;
-    justify-content: center;
+    display: flex !important;
+    justify-content: center !important;
     align-items: center;
     height: auto;
     padding-top: 5em;
@@ -40,3 +40,63 @@ section{
     align-items: center;
     justify-content: center;
 }
+
+.product{
+    display: flex;
+    justify-content: center;
+}
+
+.productinfo{
+    max-width: 15%;
+}
+
+.productDetail{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 2rem;
+    gap: 1rem;
+    padding-bottom: 1rem;
+}
+
+.desc{
+    width: 50%;
+}
+
+.BtnCartContainer, .txt{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.txt{
+    margin-top: 12px;
+    font-style: italic;
+}
+
+.BtnCart{
+    background: var(--TextandBtn-color);
+    color: var(--BgandBtntext-color);
+    padding: 7px 14px 7px 14px;
+}
+
+.PriceContainer, .QtyContainer{
+    display: flex;
+    gap: 1rem;
+}
+
+.QtyContainer{
+    justify-content: center;
+    gap: 1rem;
+}
+
+.add, .subtr{
+    background: var(--BgandBtntext-color);
+    width: 14px;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+

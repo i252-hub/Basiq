@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import './styles/Products.css';
+import { Link } from "react-router-dom";
+
 const Women = ({delay}) => {
     const [productWomen, setProductsWomen] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -34,7 +36,10 @@ const Women = ({delay}) => {
                 {productWomen.map((product) => (
                     <div key={product.id} className="product">
                         <div className="womens">
+                        <Link to = {`/productinfo/${product.id}`}>
                         <img src={product.image} alt={product.title} className="women" />
+                        </Link>
+                        
                         </div>
                        
                         </div>

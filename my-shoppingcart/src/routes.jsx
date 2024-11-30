@@ -1,5 +1,7 @@
 import HomePage from "./HomePage";
 import Products from "./Products";
+import ProductInfo from "./Product-Info";
+import Cart from "./Cart";
 
 const routes = [
     {
@@ -10,6 +12,14 @@ const routes = [
         path: "products",
         element: <Products />
     },
+    {
+        path: "productinfo/:id",
+        element: <ProductInfo />
+    },
+    {
+        path: "cart",
+        element: <Cart />
+    }
 ]
 
 export default routes;

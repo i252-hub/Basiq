@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import './styles/Products.css';
+import { Link } from "react-router-dom";
+
 const Accesory = ({delay}) => {
     const [productAccess, setProductsAccess] = useState([]);
     const [loading, setLoading] = useState(true);
@@ -34,7 +36,10 @@ const Accesory = ({delay}) => {
                 {productAccess.map((product) => (
                     <div key={product.id} className="product">
                         <div className="accessories">
+                        <Link to = {`/productinfo/${product.id}`}>
                         <img src={product.image} alt={product.title} className="accessory" />
+                        </Link>
+                        
                         </div>
                        
                         </div>

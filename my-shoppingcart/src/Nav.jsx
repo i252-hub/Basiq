@@ -14,7 +14,8 @@ const Nav = () =>{
                 <ul>
                     <li><Link to = "/">Home</Link></li>
                     <li><Link to = "/products">Products</Link></li>
-                    <Icon path={mdiCart} size={1} />
+                    <Link to = "/cart"><Icon path={mdiCart} size={1} /></Link>
+                    
                 </ul>
             </div>
          </nav>
