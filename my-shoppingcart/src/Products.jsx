@@ -6,13 +6,13 @@ import Accesory from "./Accessory";
 
 const Products = () =>{
 
-    
+ 
     return ( 
        <>
        <Nav />
        <div className="products">
        <section className="Men"><Men /></section>
-       <section className="Women"><Women/></section>
+       <section className="Women"><Women /></section>
        <section className="Accessory"><Accesory/></section>
        </div>
      

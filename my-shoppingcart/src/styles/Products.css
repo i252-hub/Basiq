@@ -1,5 +1,7 @@
+@import './root.css';
+
 .men, .women, .accessory{
-    width: 50%;
+    max-width: 50%;
     transition: transform 0.3s ease-in-out;
     overflow: hidden;
 }

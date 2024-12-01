@@ -1,0 +1,105 @@
+@import './root.css';
+
+
+img{
+    width: 100%;
+    object-fit: cover;
+}
+
+.imgContainer{
+    max-width: 15%;
+}
+
+
+
+.itemCart, .cartz{
+    display: flex;
+    align-items: center;
+    gap: 2em;
+    max-width: 90%;
+}
+
+.checkoutContainer{
+    display: flex;
+    justify-content: flex-end;
+    max-width: 90%;
+    margin-top: 2rem;
+    padding-bottom: 3rem;
+    gap: 1rem;
+}
+
+.checkout, .cancelBtn{
+    padding: 8px 14px 8px 14px;
+    background: var(--TextandBtn-color);
+    color: var(--BgandBtntext-color);
+    width: 120px;
+}
+
+.cartz{
+    flex-grow: 1;
+}
+
+h3{
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+}
+
+.itemCart{
+    padding-top: 5rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid grey;
+    margin-left: 2rem;
+    display: flex;
+    align-items: stretch;
+    gap: 2em;
+    overflow: hidden;
+}
+
+
+
+.title{
+    background: var(--TextandBtn-color);
+    color: var(--BgandBtntext-color);
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+h2{
+    font-weight: 100 !important;
+}
+
+.btnDelete{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+}
+
+.empty-cart{
+    max-width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+    position: relative;
+    top: 50%;
+    height: 100vh;
+}
+
+.delete{
+    background: var(--BgandBtntext-color);
+    border: none;
+    font-size: 1rem;
+    margin-right: 1rem;
+}
+
+.totalPrice{
+    display: flex;
+    justify-content: flex-end;
+    width: 90%;
+    padding-top: 1em;
+}
+
+.price{
+    font-size: 1.5rem;
+}

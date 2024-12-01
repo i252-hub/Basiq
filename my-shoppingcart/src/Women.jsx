@@ -2,36 +2,36 @@ import { useEffect, useState } from 'react';
 import './styles/Products.css';
 import { Link } from "react-router-dom";
 
-const Women = ({delay}) => {
+const Women = () => {
     const [productWomen, setProductsWomen] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [isHeadingVisible, setIsHeadingVisible] = useState(false);
 
     useEffect(() => {
-        setTimeout(()=>{
             fetch('https://fakestoreapi.com/products', {mode: 'cors'})
             .then((response) => response.json())
             .then((data) => {
                 const filteredListW = data.filter((resW)=> resW.category == "women's clothing");
                 const productListsW = filteredListW.slice(1,4);
                 setProductsWomen(productListsW);
-                setLoading(false);
             })
-            .catch((error) =>{
-                setError(error);
-                setLoading(false);
+            .catch(() =>{
+                setError('No products found');
             })
-        }, delay)
-    }, [delay])
+            const timeoutId = setTimeout(() => {
+                setIsHeadingVisible(true); 
+            }, 300); 
+    
+          
+            return () => clearTimeout(timeoutId);
+        }, []);
     
     return ( 
        <>
      
        <section>
-        <h1>Women`s Clothing</h1>
-        {loading && <p>loading...</p>}
+       {isHeadingVisible && <h1>Women`s Clothing</h1>}
         {error && <p>error</p>}
-        {productWomen.length > 0 ? (
             <div className="productListWomen">
                 {productWomen.map((product) => (
                     <div key={product.id} className="product">
@@ -45,9 +45,6 @@ const Women = ({delay}) => {
                         </div>
                         ))}
         </div>
-        ): (
-            <p>No products found</p>
-        )}
        </section>
        </>
          

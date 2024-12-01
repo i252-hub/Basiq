@@ -2,36 +2,37 @@ import { useEffect, useState } from 'react';
 import './styles/Products.css';
 import { Link } from "react-router-dom";
 
-const Accesory = ({delay}) => {
+const Accesory = () => {
     const [productAccess, setProductsAccess] = useState([]);
-    const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
+    const [isHeadingVisible, setIsHeadingVisible] = useState(false);
 
     useEffect(() => {
-        setTimeout(()=>{
             fetch('https://fakestoreapi.com/products', {mode: 'cors'})
             .then((response) => response.json())
             .then((data) => {
                 const filteredListA = data.filter((resA)=> resA.category == "jewelery");
                 const productListsA = filteredListA.slice(1,4);
                 setProductsAccess(productListsA);
-                setLoading(false);
             })
-            .catch((error) =>{
-                setError(error);
-                setLoading(false);
+            .catch(() =>{
+                setError('No products found');
             })
-        }, delay)
-    }, [delay])
+            const timeoutId = setTimeout(() => {
+                setIsHeadingVisible(true); 
+            }, 300); 
+    
+          
+            return () => clearTimeout(timeoutId);
+        }, []);
+       
     
     return ( 
        <>
      
        <section>
-        <h1>Accessories</h1>
-        {loading && <p>loading...</p>}
+       {isHeadingVisible && <h1>Accessories</h1>}
         {error && <p>error</p>}
-        {productAccess.length > 0 ? (
             <div className="productListAccess">
                 {productAccess.map((product) => (
                     <div key={product.id} className="product">
@@ -45,9 +46,6 @@ const Accesory = ({delay}) => {
                         </div>
                         ))}
         </div>
-        ): (
-            <p>No products found</p>
-        )}
        </section>
        </>
          
