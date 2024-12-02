@@ -1,6 +1,6 @@
 import { render, screen } from "@testing-library/react";
-import Products from "../Products";
-import { CartProvider } from "../useCart"; 
+import Products from "./Products";
+import { CartProvider } from "./useCart"; 
 import { BrowserRouter } from "react-router-dom";
 
 describe("Products Component", () => {

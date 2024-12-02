@@ -11,7 +11,7 @@ const Cart = () => {
     const { cart, setCart } = useCart();
     const [showtotal, setShowTotal] = useState(null);
     const [pay, setPay] = useState('Checkout');
-    const [showCancel, setShowCancel] = useState(true);
+    const [showCancel, setShowCancel] = useState(false);
 
     useEffect(() => {
         const savedCart = localStorage.getItem("cart");

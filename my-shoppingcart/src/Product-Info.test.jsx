@@ -1,8 +1,8 @@
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
 import { BrowserRouter, MemoryRouter, Route, Routes } from "react-router-dom";
 import { vi } from "vitest";
-import ProductInfo from "../ProductInfo";
-import { CartProvider } from "../useCart"; 
+import ProductInfo from "./ProductInfo";
+import { CartProvider } from "./useCart"; 
 
 describe("ProductInfo Component", () => {
   beforeEach(() => {

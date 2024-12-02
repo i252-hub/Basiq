@@ -65,13 +65,15 @@ const ProductInfo = () => {
       {productDetail ? (
         <>
           <img src={productDetail.image} alt={productDetail.title} className="productinfo" />
-          <h2>{productDetail.title}</h2>
-          <div className="PriceContainer">
+          <div className="product-title-container" >
+          <h2 className="product-title">{productDetail.title}</h2>
+          </div>
           <div className="QtyContainer">
             <button className="add" onClick={RemoveQuantityChange}><Icon path={mdiMinus} size={0.5}/></button>
             <p>Quantity: {quantity}</p>
             <button className="subtr"onClick={AddQuantityChange}><Icon path={mdiPlus} size={0.5} /></button>
           </div>
+          <div className="PriceContainer">
           <p>Price: ${(productDetail.price * quantity).toFixed(2)}</p>
           </div>
          

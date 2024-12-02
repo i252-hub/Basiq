@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import './styles/Products.css';
 import { Link } from "react-router-dom";
 
-const Accesory = () => {
+const Accessory = () => {
     const [productAccess, setProductsAccess] = useState([]);
     const [error, setError] = useState(null);
     const [isHeadingVisible, setIsHeadingVisible] = useState(false);
@@ -32,7 +32,7 @@ const Accesory = () => {
      
        <section>
        {isHeadingVisible && <h1>Accessories</h1>}
-        {error && <p>error</p>}
+        {error && <p>No products found</p>}
             <div className="productListAccess">
                 {productAccess.map((product) => (
                     <div key={product.id} className="product">
@@ -52,4 +52,4 @@ const Accesory = () => {
     )
 }
 
-export default Accesory;
+export default Accessory;

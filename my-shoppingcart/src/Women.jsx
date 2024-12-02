@@ -31,7 +31,7 @@ const Women = () => {
      
        <section>
        {isHeadingVisible && <h1>Women`s Clothing</h1>}
-        {error && <p>error</p>}
+        {error && <p>No products found</p>}
             <div className="productListWomen">
                 {productWomen.map((product) => (
                     <div key={product.id} className="product">

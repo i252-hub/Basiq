@@ -99,6 +99,40 @@ section{
     justify-content: center;
 }
 
+@media screen and (max-width: 480px) {
+
+    h1{
+        font-size: 2rem;
+    }
+    .productListMen, .productListWomen, .productListAccess{
+        display: flex;
+        flex-direction: column;
+        gap: 5rem;
+        padding-top: 2rem;
+    }
+    .mens{
+        width: 100%;
+    }
+
+ 
+    .productinfo{
+        max-width: 50%;
+    }
+
+    p{
+        text-align: center;
+    }
+
+    button{
+        width: 100%;
+    }
+
+
+    .BtnCartContainer{
+        padding-top: 1rem;
+        justify-content: center;
+    }
+}
 
 
 

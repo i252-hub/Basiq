@@ -2,7 +2,7 @@ import Nav from "./Nav";
 import Men from "./Men";
 import Women from "./Women";
 import './styles/Products.css'
-import Accesory from "./Accessory";
+import Accessory from "./Accessory";
 
 const Products = () =>{
 
@@ -13,7 +13,7 @@ const Products = () =>{
        <div className="products">
        <section className="Men"><Men /></section>
        <section className="Women"><Women /></section>
-       <section className="Accessory"><Accesory/></section>
+       <section className="Accessory"><Accessory/></section>
        </div>
      
        </>
