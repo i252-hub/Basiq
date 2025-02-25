@@ -1,8 +1,8 @@
 import './styles/HomePage.css';
-import Icon from '@mdi/react';
-import { mdiCart } from '@mdi/js';
 import { Link } from "react-router-dom";
 import { useState } from 'react';
+import { ShoppingBagIcon, HeartIcon, UserIcon} from '@heroicons/react/24/outline'
+
 const Nav = () =>{
     const [menuOpen, setMenuOpen] = useState(false);
 
@@ -11,8 +11,13 @@ const Nav = () =>{
     return (
         <>
          <nav>
+            <div className='categories'>
+                <li>Men</li>
+                <li>Women</li>
+                <li>Accessories</li>
+            </div>
             <div className='Logo'>
-                Kirsten 
+                Basiq 
             </div>
             <div className='Links'>
                 <ul>
@@ -55,7 +60,7 @@ const Nav = () =>{
           
            
          
-        
+                
             
          </nav>
 
