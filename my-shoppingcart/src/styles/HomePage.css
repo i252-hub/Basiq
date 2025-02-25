@@ -1,13 +1,45 @@
 @import './root.css';
 
+@font-face {
+    font-family: 'Jomolhari';
+    src: url('../assets/fonts/Jomolhari.ttf') format('truetype'); 
+    font-weight: normal;
+    font-style: normal;
+  }
+
+  body{
+   
+    overflow-x: hidden;
+    background: var(--BgandBtntext-color);
+    color: var(--TextandBtn-color) !important;
+    font-family:  'Jomolhari', serif;
+    font-weight: var(--font-weight);
+}
+
 nav{
+    width: 100%;
+    position: relative;
+    bottom: 22rem;
+    padding: 1em;
+    z-index: 10;
+    height: 5rem;
     display: flex !important;
-    justify-content:space-around;
+    justify-content:space-between;
     align-items: center;
     align-content: center;
     align-self: center;
-    padding: 1em;
+    position: relative;
 }
+   
+
+
+.categories{
+    display: flex;
+    font-size: 1.3em;
+    gap: 1rem;
+}
+
+   
 
 ul{
     display: flex;
@@ -25,15 +57,19 @@ a{
     color: var(--TextandBtn-color) !important;
 }
 
-body{
-    background: var(--BgandBtntext-color);
-    color: var(--TextandBtn-color) !important;
-    font-family: var(--text-fontfamily);
-    font-weight: var(--font-weight);
+
+
+.main{
+    width:100vw;
+    height:100vh;
+    z-index: 2;
 }
 
 .Logo{
     font-size: 2em;
+    width:100%;
+    display: flex;
+    justify-content: center;
 }
 
 .Links{
@@ -42,14 +78,41 @@ body{
 
 .jewelry{
     max-width: 100%;
-    position: fixed;
-    height: auto;
+    position: relative;
+    
+}
+
+.shadow{
+    width: 100vw;
+    height: 120vh;
+    background: #D9D9D9;
+    z-index: 1;
+    position: absolute;
+    opacity: 25%;
+
+}
+
+.newCollection{
+    width: 100%;
+    height: 50%;
+    background: white;
+    z-index: 15;
+    position: relative;
+    bottom: 8rem;
+    display: block;
 }
 
 .pic{
-    width: 100vw;
+    background: url('../assets/landingpic.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100%;
+    height: 120%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
+    position: relative;
 }
 .hamburger{
 display: none; 
