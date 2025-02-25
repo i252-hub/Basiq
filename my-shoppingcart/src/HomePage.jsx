@@ -1,18 +1,20 @@
 import './styles/HomePage.css';
-import jewelry from './assets/jewelry.jpg';
-import Nav from './Nav'
-
+import Navbar from './Nav'
 
 const HomePage = () => {
     return (
         <>
-        <Nav />
+        <div className='main'>
+        <div className='shadow'> </div>
         <div className='pic'>
-            
-        <img src={jewelry} className='jewelry' alt = 'jewelry'/>
+        <Navbar/>
         
         </div>
-         
+       
+       <section className='newCollection'>
+
+       </section>
+       </div>
         </>
        
     )
