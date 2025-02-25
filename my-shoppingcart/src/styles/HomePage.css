@@ -11,40 +11,99 @@
    
     overflow-x: hidden;
     background: var(--BgandBtntext-color);
-    color: var(--TextandBtn-color) !important;
+    color: #4C4949 !important;
     font-family:  'Jomolhari', serif;
     font-weight: var(--font-weight);
 }
-
-nav{
+.navconmain{
     width: 100%;
+    background: blue;
+    position: absolute;
+    
+}
+.navcon{
+    background: red;
+    width:100%;
     position: relative;
-    bottom: 22rem;
-    padding: 1em;
-    z-index: 10;
-    height: 5rem;
+  
+}
+nav{
+    padding:2rem;
+    width: 100%;
+    position: absolute;
+    height: 3rem;
+    z-index: 13;
     display: flex !important;
     justify-content:space-between;
     align-items: center;
     align-content: center;
     align-self: center;
+}
+
+.textoverlay.one{
+    position: absolute;
+    z-index: 13;
+    top:20rem;
+}
+
+.titlehome, .subtitle, .shopbtn{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    
+}
+.textOne{
+    font-size: 5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+    color: #F5F0F0 !important;
+}
+
+.textTwo{
+    font-size: 2rem;
+    color: #F5F0F0 !important;
+}
+
+.bttn{
+    margin-top: 1rem;
+   width:7rem;
+   height: 2.5rem;
+   border-radius: 1rem;
+   background: transparent;
+   border: 1px solid #F5F0F0;
+   color: #F5F0F0;
+}
+.textoverlay.two{
     position: relative;
 }
-   
+
+.textoverlay.three{
+    position: absolute;
+}
+.textoverlay{
+    width: 100%;
+    height: 70%;
+}
+
+.icon{
+    width: 2rem;
+    color: #4C4949;
+}
 
 
 .categories{
     display: flex;
-    font-size: 1.3em;
+    font-size: 1.5em;
     gap: 1rem;
 }
 
-   
+
 
 ul{
     display: flex;
     justify-content: center;
     gap: 1rem;
+    z-index: 18;
+
 }
 
 li{
@@ -62,19 +121,18 @@ a{
 .main{
     width:100vw;
     height:100vh;
-    z-index: 2;
+    z-index: 11;
 }
 
 .Logo{
+    position: absolute;
     font-size: 2em;
-    width:100%;
+    width:95%;
     display: flex;
     justify-content: center;
 }
 
-.Links{
-    font-size: 1.3em;
-}
+
 
 .jewelry{
     max-width: 100%;
@@ -86,7 +144,7 @@ a{
     width: 100vw;
     height: 120vh;
     background: #D9D9D9;
-    z-index: 1;
+    z-index: 10;
     position: absolute;
     opacity: 25%;
 
@@ -94,7 +152,7 @@ a{
 
 .newCollection{
     width: 100%;
-    height: 50%;
+    height: 100%;
     background: white;
     z-index: 15;
     position: relative;
@@ -110,6 +168,7 @@ a{
     width: 100%;
     height: 120%;
     display: flex;
+    z-index: 9;
     flex-direction: column;
     justify-content: center;
     position: relative;
@@ -148,6 +207,7 @@ transition: all 0.3s ease;
         padding: 1em;
         
     }
+    
     .Links, .Logo{
         display: none;
     }

@@ -21,9 +21,9 @@ const Nav = () =>{
             </div>
             <div className='Links'>
                 <ul>
-                    <li><Link to = "/">Home</Link></li>
-                    <li><Link to = "/products">Products</Link></li>
-                    <Link to = "/cart"><Icon path={mdiCart} className='cart' size={1} /></Link>
+                    <li><Link to = "/"><ShoppingBagIcon className='icon bag'/></Link></li>
+                    <li><Link to = "/products"><HeartIcon className='icon heart'/></Link></li>
+                    <Link to = "/cart"><UserIcon className='icon user'/></Link>
                     
                 </ul>
             </div>
