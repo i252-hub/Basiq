@@ -85,7 +85,7 @@ nav{
 }
 
 .icon{
-    width: 2rem;
+    width: 1.5rem;
     color: #4C4949;
 }
 
@@ -101,7 +101,7 @@ nav{
 ul{
     display: flex;
     justify-content: center;
-    gap: 1rem;
+    gap: 3px;
     z-index: 18;
 
 }
@@ -173,6 +173,255 @@ a{
     justify-content: center;
     position: relative;
 }
+
+.textcollection{
+    width: 100%;
+    height: 8rem;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    
+}
+
+.collectiontitle, .collectionsubtitle{
+    display: flex;
+    width:100%;
+    justify-content: center;
+}
+
+.collectiontitle{
+font-size: 1.2rem;
+padding-bottom: 14px;
+position: relative;
+bottom:1.2rem;
+}
+
+.collectionsubtitle{
+position: relative;
+bottom:1.2rem;
+}
+
+.collectionitemscontainer{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    position: relative;
+    width: 100%;
+    height:100%;
+    gap:3rem;
+}
+
+.extra{
+    width:100%;
+    height:100%;
+    padding:1rem;
+}
+/*
+.collectionitem.one{
+    background: red;
+}
+
+.collectionitem.two{
+    background: purple;
+}
+.collectionitem.three{
+    background: peachpuff;
+}
+.collectionitem.four{
+    background: blue;
+}
+.collectionitem.five{
+    background: gold;
+}
+.collectionitem.six{
+    background: green;
+}
+*/
+.imagecollectioncontainer{
+    width:100%;
+    height:80%;
+    background: black;
+    border-radius: 2rem;
+}
+
+.collectiondetails, .productcollectiontitle, .productcollectiondesc, .productcollectionprice{
+    width:100%;
+}
+
+.collectiondetails{
+    margin-left: 14px;
+    display: flex;
+    flex-direction: column;
+    gap:3px;
+}
+
+.productcollectiontitle,  .productcollectionprice{
+   -webkit-text-stroke: #4C4949 1px;
+}
+
+.productcollectiondesc{
+    opacity: 70%;
+}
+
+.catalog{
+    width:100%;
+    height:100%;
+   
+    
+}
+
+.catalogcontainer{
+    width:100%;
+    height:70%;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #333;
+}
+
+.catalogone, .catalogtwo, .catalogthree{
+    position: relative;
+}
+.cover{
+    width:100%;
+    height: 100%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cover > p{
+    color: #fff;
+    font-size: 2rem;
+}
+.catalogone{
+    background: pink;
+}
+
+.catalogtwo{
+    background: red;
+}
+
+.catalogthree{
+    background: blue;
+}
+
+.newsletter{
+    width:100%;
+    height: 65%;
+    background: pink;
+    display: flex;
+    justify-content: center;
+}
+
+.newstitle, .newssubtitle, .newssignup{
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+
+.newstitle{
+    font-size: 3rem;
+}
+.newssubtitle{
+    font-size: 1.5rem;
+    text-align: center;
+    padding-bottom: 3rem;
+}
+
+.newsinputcontainer{
+    width:35%;
+    position: relative;
+}
+
+.newslettercontainer{
+    width:100%;
+    
+}
+input{
+    width: 100%;
+    height: 3.5em;
+    outline: none;
+    border: none;
+    border-radius: 2rem;
+}
+
+.newsbtncontainer{
+    width: 30%;
+    position: absolute;
+    background: transparent;
+    bottom:5px;
+    height:1.9em;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    left:70%;
+    border-left: 1px solid #333;
+}
+
+.newsbtncontainer > button{
+    width: 95%;
+    height: 3.9em;
+    border-top-right-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+    outline: none;
+    border: none;
+    position: relative;
+    bottom:14px;
+    left:8px;
+    font-family:  'Jomolhari', serif;
+    background: transparent;
+    z-index: 5;
+}
+
+button > p {
+    font-size: 1.3rem;
+    z-index: 8;
+    position: relative;
+    top:2px;
+}
+
+.footer{
+    width:100%;
+    height: 40%;
+    background: #333;
+}
+
+.footerlinks, .copyright{
+    width:100%;
+}
+
+.footerlinkscontainer{
+    height: 85%;
+    background: #E8E9E9;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+
+.footerlinks{
+    background: red;
+    display: grid;
+    grid-template-columns: 20% 20% 60%;
+}
+
+.policylinks{
+    background: blue;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+}
+
+.copyright{
+    height: 15%;
+    background: #4C4949;
+}
+/*responsive*/
 .hamburger{
 display: none; 
 cursor: pointer;
