@@ -1,0 +1,144 @@
+body::-webkit-scrollbar {
+    display: none; 
+  }
+.signupcontainer{
+    width: 100vw;
+    height:100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.imagecontainer{
+    background: blue;
+}
+
+
+
+.inputcontainer{
+    width:100%;
+    height:2em;
+    display: flex;
+    justify-content: center;
+}
+
+input{
+    border-radius: 0;
+    width: 80%;
+    height: 100%;
+    border-bottom: 2px solid rgba(76, 73, 73, 0.6);
+    font-size: 1.5rem;
+    font-family:  'Jomolhari', serif;
+    
+}
+
+input:focus{
+    font-size: 1.5em;
+    font-family:  'Jomolhari', serif;
+
+}
+
+input:focus::placeholder{
+    opacity: 0;
+    
+}
+
+.topsign{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-bottom: 2em;
+}
+
+input::placeholder{
+    opacity: 1;
+    font-family:  'Jomolhari', serif;
+    color: #4C4949;
+    font-size: 1em;
+}
+
+.inputcontainer.sec{
+position: relative;
+top: 2rem;
+}
+
+.inputcontainer.thi{
+position: relative;
+top: 4rem;
+}
+
+.inputcontainer.for{
+position: relative;
+top: 6rem;
+}
+
+.signbtncontainer{
+    width: 100%;
+    position: relative;
+    top:12em;
+    height: 2.5rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.signbtncontainer > button{
+    margin-right: 4rem;
+    padding: 10px 1rem 10px 1rem;
+    border-radius: 2rem;
+    background: #4C4949;
+    color: #F7F5F5;
+    outline: none;
+    border: none;
+}
+
+.signbtncontainer > button{
+    margin-right: 4rem;
+    padding: 10px 1rem 10px 1rem;
+    border-radius: 2rem;
+    background: #4C4949;
+    color: #F7F5F5;
+    outline: none;
+    border: none;
+}
+.tosignin{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    top: 12em;
+    white-space: nowrap;
+    position: relative;
+   
+}
+
+span{
+    font-style: italic;
+   display: inline;
+ 
+}
+
+.signin{
+    position: relative;
+    bottom:1.1rem;
+    left:10.5rem;
+}
+
+.tosignin > p{
+    position: relative;
+    top:10px;
+}
+
+.in{
+    display: inline;
+    width:3rem;
+}
+
+.topsign > h1{
+    font-size: 3em;
+}
+.topsign > p{
+    font-size: 1.5em;
+   
+}
