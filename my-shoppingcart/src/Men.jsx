@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import './styles/Products.css';
 import { Link } from "react-router-dom";
+import Nav from './Nav';
+import {PlusIcon} from '@heroicons/react/24/solid'
 
 
 const Men = () => {
@@ -13,8 +15,7 @@ const Men = () => {
             .then((response) => response.json())
             .then((data) => {
                 const filteredList = data.filter((res)=> res.category == "men's clothing");
-                const productLists = filteredList.slice(1,4);
-                setProductsMen(productLists);
+                setProductsMen(filteredList);
             })
             .catch(() =>{
                 setError('No products found')
@@ -30,9 +31,16 @@ const Men = () => {
     
     return ( 
        <>
-     
-       <section>
-       {isHeadingVisible && <h1>Men`s Clothing</h1>}
+       <Nav />
+      <div className="products">
+       <section className="Men">
+       {isHeadingVisible && <div className='productpagementitle'><p>MEN`S CLOTHING</p></div>}
+       <div className='sortandfilter'>
+        <div>
+            <p>SORT</p>
+            <PlusIcon/>
+        </div>
+       </div>
         {error && <p>No products found</p>}
             <div className="productListMen">
                 {productMen.map((product) => (
@@ -48,6 +56,7 @@ const Men = () => {
                         ))}
         </div>
        </section>
+       </div>
        </>
          
     )
