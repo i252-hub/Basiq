@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
 import './styles/Products.css';
 import { Link } from "react-router-dom";
+import Nav from './Nav';
 
 const Accessory = () => {
     const [productAccess, setProductsAccess] = useState([]);
@@ -12,8 +13,7 @@ const Accessory = () => {
             .then((response) => response.json())
             .then((data) => {
                 const filteredListA = data.filter((resA)=> resA.category == "jewelery");
-                const productListsA = filteredListA.slice(1,4);
-                setProductsAccess(productListsA);
+                setProductsAccess(filteredListA);
             })
             .catch(() =>{
                 setError('No products found');
@@ -29,8 +29,9 @@ const Accessory = () => {
     
     return ( 
        <>
-     
-       <section>
+       <Nav/>
+      <div className="products">
+       <section className="Accessory">
        {isHeadingVisible && <h1>Accessories</h1>}
         {error && <p>No products found</p>}
             <div className="productListAccess">
@@ -47,6 +48,7 @@ const Accessory = () => {
                         ))}
         </div>
        </section>
+       </div>
        </>
          
     )

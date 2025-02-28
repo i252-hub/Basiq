@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react';
 import './styles/Products.css';
 import { Link } from "react-router-dom";
-
+import Nav from './Nav';
 const Women = () => {
     const [productWomen, setProductsWomen] = useState([]);
     const [error, setError] = useState(null);
@@ -12,8 +12,7 @@ const Women = () => {
             .then((response) => response.json())
             .then((data) => {
                 const filteredListW = data.filter((resW)=> resW.category == "women's clothing");
-                const productListsW = filteredListW.slice(1,4);
-                setProductsWomen(productListsW);
+                setProductsWomen(filteredListW);
             })
             .catch(() =>{
                 setError('No products found');
@@ -28,8 +27,9 @@ const Women = () => {
     
     return ( 
        <>
-     
-       <section>
+              <Nav />
+        <div className="products">
+       <section className="Women">
        {isHeadingVisible && <h1>Women`s Clothing</h1>}
         {error && <p>No products found</p>}
             <div className="productListWomen">
@@ -46,6 +46,7 @@ const Women = () => {
                         ))}
         </div>
        </section>
+       </div>
        </>
          
     )
