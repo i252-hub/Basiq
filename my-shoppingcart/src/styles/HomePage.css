@@ -13,7 +13,7 @@
     background: var(--BgandBtntext-color);
     color: #4C4949 !important;
     font-family:  'Jomolhari', serif;
-    font-weight: var(--font-weight);
+   
 }
 .navconmain{
     width: 100%;
@@ -87,6 +87,7 @@ nav{
 .icon{
     width: 1.5rem;
     color: #4C4949;
+    
 }
 
 
@@ -98,13 +99,25 @@ nav{
 
 
 
-ul{
+.linksul{
     display: flex;
     justify-content: center;
     gap: 3px;
-    z-index: 18;
+    z-index: 25;
 
 }
+
+.categoriesul{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    z-index: 25;
+}
+
+.Links{
+    z-index: 40;
+}
+
 
 li{
     list-style: none;
@@ -209,42 +222,88 @@ bottom:1.2rem;
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
     position: relative;
-    width: 100%;
+    width: 85%;
     height:100%;
-    gap:3rem;
+    gap:5rem;
 }
 
+.collectionitemscontainer .collectionitem:nth-child(2) .imgs {
+    width: 75%;
+}
+
+.collectionitemscontainer .collectionitem:nth-child(3) .imgs {
+    width: 90%;
+}
+.collectionitemscontainer .collectionitem:nth-child(6) .imgs {
+    height: 53%;
+}
+
+.collectionitemscontainer .collectionitem:nth-child(5) .imgs {
+    width: 55%;
+}
+.collectionitemscontainer .collectionitem:nth-child(4) .imgs {
+    width: 75%;
+}
+.collectionitemscontainer .collectionitem:nth-child(1) .imgs {
+   width: 70%;
+   height:100%;
+}
 .extra{
     width:100%;
     height:100%;
     padding:1rem;
+    display: flex;
+    justify-content: center;
 }
-/*
+
 .collectionitem.one{
-    background: red;
+    width:50%;
+    height:100%;
+    position: relative;
 }
 
 .collectionitem.two{
-    background: purple;
+    width:70%;
+    height:100%;    position: relative;
 }
 .collectionitem.three{
-    background: peachpuff;
+    width:70%;
+    height:100%;
+    position: relative;
 }
 .collectionitem.four{
-    background: blue;
+    width:70%;
+    height:100%;
+        position: relative;
 }
 .collectionitem.five{
-    background: gold;
+    width:70%;
+    height:100%;
+    position: relative;
 }
 .collectionitem.six{
-    background: green;
+    width:70%;
+    height:100%;
+    position: relative;
 }
-*/
+
 .imagecollectioncontainer{
-    width:100%;
-    height:80%;
-    background: black;
+    width:90%;
+    height:100%;
     border-radius: 2rem;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+}
+
+.imgs{
+    max-width: 100%;
+    height:100%;
+    transition: transform 0.3s ease-in-out;
+    overflow: hidden;
+    position: absolute;
 }
 
 .collectiondetails, .productcollectiontitle, .productcollectiondesc, .productcollectionprice{
@@ -264,25 +323,36 @@ bottom:1.2rem;
 
 .productcollectiondesc{
     opacity: 70%;
+   position: absolute;
+   display: inline;
+   width:150%;
+  
+   
 }
-
+.elipsis{
+    width: 100%;
+    position: relative;
+    width:50%;
+    height:1rem;
+}
 .catalog{
     width:100%;
     height:100%;
-   
+   position: relative;
+   top:10rem;
     
 }
 
 .catalogcontainer{
     width:100%;
-    height:70%;
+    height:100%;
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    background: #333;
 }
 
 .catalogone, .catalogtwo, .catalogthree{
     position: relative;
+    
 }
 .cover{
     width:100%;
@@ -291,37 +361,99 @@ bottom:1.2rem;
     display: flex;
     justify-content: center;
     align-items: center;
+    bottom:4.5rem;
 }
+
+
 
 .cover > p{
     color: #fff;
-    font-size: 2rem;
-}
-.catalogone{
-    background: pink;
-}
-
-.catalogtwo{
-    background: red;
+    font-size: 3em;
+    z-index: 980;
+    text-align: center;
+    opacity: 0;
 }
 
-.catalogthree{
-    background: blue;
+.arrowcontainer{
+    width:100%;
+    position: absolute;
+    bottom: 5px;
+    display: flex;
+    justify-content: end;
+}
+
+.arrow{
+    width:4rem;
+    height:4rem;
+    color:white;
+    opacity: 0;
+    transition: transform 0.2s ease-in-out;
+    position: relative;
+    right:10px;
+    cursor: pointer;
+}
+
+.catalogone:hover img,
+.catalogtwo:hover img,
+.catalogthree:hover img {
+  opacity: 0.7;
+  transition: opacity 0.1s ease-in-out;
+}
+
+
+
+
+
+
+
+.catalogone:hover .cover p,
+.catalogtwo:hover .cover p,
+.catalogthree:hover .cover p  {
+  opacity: 1;
+  visibility: visible;
+}
+
+
+.catalogone:hover .arrow,
+.catalogtwo:hover .arrow,
+.catalogthree:hover .arrow
+ {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(8px);
 }
 
 .newsletter{
     width:100%;
     height: 65%;
-    background: pink;
+    background: url('../assets/newsbg.jpg');
+    background-size: cover;
     display: flex;
     justify-content: center;
+    z-index: 90;
+    position: relative;
+    top:15rem;
 }
+
+.imgmen, .imgwomen{
+    width:100%;
+    height:100%;
+   opacity: 100%;
+}
+
+.imgaccessory{
+    width:100%;
+    height:100%;
+}
+
+
 
 .newstitle, .newssubtitle, .newssignup{
 width: 100%;
 display: flex;
 justify-content: center;
 align-items: center;
+z-index: 90;
 }
 
 .newstitle{
@@ -340,14 +472,26 @@ align-items: center;
 
 .newslettercontainer{
     width:100%;
+   position: absolute;
+   z-index: 30;
     
 }
-input{
+.newsinput{
     width: 100%;
-    height: 3.5em;
+    height: 2em;
     outline: none;
     border: none;
     border-radius: 2rem;
+    z-index: 90;
+}
+
+.newscover{
+    width:100%;
+    height: 100%;
+    background: white;
+    opacity: 50%;
+    position: absolute;
+   z-index: 10;
 }
 
 .newsbtncontainer{
@@ -389,8 +533,10 @@ button > p {
 }
 
 .footer{
+    position: relative;
+    top:15rem;
     width:100%;
-    height: 40%;
+    height: 30%;
     background: #333;
 }
 
@@ -406,20 +552,70 @@ button > p {
 }
 
 .footerlinks{
-    background: red;
     display: grid;
-    grid-template-columns: 20% 20% 60%;
+    grid-template-columns: 25% 25% 70%;
+    font-size: 14px;
+}
+.acc{
+    padding-bottom: 1px;
+}
+.footerlinksone, .footerlinkstwo, .footerlinksthree{
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: center;
 }
 
+
+.footerlinksone > div{
+    position: relative;
+    left:5rem;
+}
+
+.footerlinkstwo > div{
+    position: relative;
+    left:3rem;
+}
+
+.footerlinksthree > div{
+    position: relative;
+    left:2rem;
+}
+
+.titlefooterlink{
+    padding-bottom: 8px;
+}
+
+.footerlinksthreesocial{
+    height:1.1rem;
+}
 .policylinks{
-    background: blue;
     display: grid;
     grid-template-columns: repeat(3,1fr);
+}
+
+
+
+.policylinksone, .policylinkstwo, .policylinksthree{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 14px;
 }
 
 .copyright{
     height: 15%;
     background: #4C4949;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+
+.copyright > p{
+    color: #EFE4E4;
+    opacity: 94%;
+    font-size: 13px;
 }
 /*responsive*/
 .hamburger{
