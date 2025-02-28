@@ -2,6 +2,11 @@ import HomePage from "./HomePage";
 import Products from "./Products";
 import ProductInfo from "./Product-Info";
 import Cart from "./Cart";
+import Signup from "./Signup";
+import Signin from "./Signin";
+import Men from "./Men";
+import Women from "./Women";
+import Accessory from "./Accessory";
 
 const routes = [
     {
@@ -19,6 +24,26 @@ const routes = [
     {
         path: "cart",
         element: <Cart />
+    },
+    {
+        path: "signup",
+        element: <Signup />
+    },
+    {
+        path: "signin",
+        element: <Signin />
+    },
+    {
+        path: "men",
+        element: <Men />
+    },
+    {
+        path: "women",
+        element: <Women />
+    },
+    {
+        path: "accessory",
+        element: <Accessory />
     }
 ]
 
