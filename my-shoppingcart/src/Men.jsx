@@ -34,19 +34,24 @@ const Men = () => {
        <Nav />
       <div className="products">
        <section className="Men">
-       {isHeadingVisible && <div className='productpagementitle'><p>MEN`S CLOTHING</p></div>}
+       {isHeadingVisible && 
+       <>
+       <div className='productpagementitle'><p>MEN`S CLOTHING</p></div>
        <div className='sortandfilter'>
-        <div>
-            <p>SORT</p>
-            <PlusIcon/>
-        </div>
+       <div className='sfcontainer'>
+           <p>SORT BY</p>
+           <PlusIcon className='iconplus'/>
        </div>
+      </div>
+      </>
+       }
+       
         {error && <p>No products found</p>}
             <div className="productListMen">
-                {productMen.map((product) => (
-                    <div key={product.id} className="product">
+                {productMen.map((product,index) => (
+                    <div key={product.id} className={`product ${index + 1}`}>
                         <div className="mens">
-                        <Link to = {`/productinfo/${product.id}`}>
+                        <Link className='menlink' to = {`/productinfo/${product.id}`}>
                         <img src={product.image} alt={product.title} className="men" />
                         </Link>
                        

@@ -11,7 +11,6 @@ body{
     font-weight: 100 !important;
 }
 .men, .women, .accessory{
-    max-width: 50%;
     transition: transform 0.3s ease-in-out;
     overflow: hidden;
 }
@@ -20,10 +19,8 @@ body{
     transform: scale(1.2);
 }
 
-.mens, .womens, .accessories, a{
-    display: flex !important;
-    justify-content: center !important;
-}
+
+
 
 .productpagementitle{
     width:100%;
@@ -37,16 +34,106 @@ body{
 
 .productpagementitle > p{
     font-size: 3em;
-    margin-left: 1.7rem;
+    margin-left: 1.5rem;
 }
-.productListMen, .productListWomen, .productListAccess{
-    display: flex !important;
-    justify-content: center !important;
+
+.sfcontainer{
+    width:8rem;
+    height:2.5rem;
+    display: flex;
+    justify-content: center;
     align-items: center;
-    height: auto;
-    padding-top: 5em;
-    max-width: 100%;
+    gap:3px;
+    border: 2px solid #4C4949;
+    border-radius: 12px;
+  
 }
+
+.productListMen .product:nth-child(2) .men,
+.productListMen .product:nth-child(4) .men {
+    width:80%;
+}
+
+.productListMen .product:nth-child(1) .men{
+   width:75%;
+}
+
+.productListMen .product:nth-child(3) .men{
+    width:90%;
+}
+
+
+
+
+.productListWomen, .productListMen, .productListAccess{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    position: relative;
+    width: 85%;
+    height:100%;
+    gap:5rem;
+    position: relative;
+    top:5rem;
+}
+
+.productListWomen .product:nth-child(1) .women,
+.productListWomen .product:nth-child(2) .women,
+.productListWomen .product:nth-child(3) .women,
+.productListWomen .product:nth-child(4) .women,
+.productListWomen .product:nth-child(5) .women,
+.productListWomen .product:nth-child(6) .women
+ {
+    width: 80%;
+    
+ }
+
+ 
+
+.productListAccess .product:nth-child(2) .accessory,
+.productListAccess .product:nth-child(4) .accessory{
+width:80%;
+}
+.productListAccess .product:nth-child(1) .accessory{
+width:50%;
+}
+.productListAccess .product:nth-child(3) .accessory{
+width:60%;  
+}
+
+.productListAccess .product:nth-child(1),
+.productListAccess .product:nth-child(2),
+.productListAccess .product:nth-child(3),
+.productListAccess .product:nth-child(4){
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.flex{
+    width:100%;
+    height:100%;
+    padding:1rem;
+    display: flex;
+    justify-content: center;
+
+}
+
+
+.sortandfilter{
+    width: 95%;
+    position: relative;
+    top:3rem;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    height:5em;
+    border-bottom: 2px solid rgba(76, 73, 73, 0.16);
+}
+.iconplus{
+    width:1.3rem;
+    height:1.3rem;
+}
+
 
 section{
     display: flex;
