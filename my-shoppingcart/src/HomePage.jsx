@@ -1,7 +1,35 @@
 import './styles/HomePage.css';
 import Navbar from './Nav'
 import Footer from './Footer'
+import Men from './assets/men.jpg'
+import Women from './assets/women.jpg'
+import Accessories from './assets/accessory.jpg'
+import { useEffect, useState } from 'react';
+import { ArrowRightCircleIcon} from '@heroicons/react/24/outline'
+import { Link } from "react-router-dom";
+
+
+
 const HomePage = () => {
+const [error, setError] = useState(null);
+const [items, setItems] = useState([]);
+    
+
+useEffect(() => {
+    const fetchItems = async () => {
+      try {
+        const response = await fetch('https://fakestoreapi.com/products'); 
+        const data = await response.json();
+        const limitedItems = data.slice(0, 6);
+        setItems(limitedItems); 
+      } catch (error) {
+        setError('No products found');
+      }
+    };
+    fetchItems();
+}, []);
+
+
     return (
         <>
                 <div className='shadow'> </div>
@@ -41,89 +69,72 @@ const HomePage = () => {
         </div>
         <div className='extra'>
         <div className='collectionitemscontainer'>
-            <div className='collectionitem one'>
-                <div className='imagecollectioncontainer'></div>
-                <div className='collectiondetails'>
-                    <p className='productcollectiontitle'>Lorem Ipsum</p>
-                    <p className='productcollectiondesc'>consectetur adipiscing elit</p>
-                    <p className='productcollectionprice'>$95</p>
-                </div>
+        {items.map((item, index) => {
+            const splitText = item.description.split(' '); 
+            const firstWord = splitText[0] || ''; 
+            const secondWord = splitText[1] || ''; 
+            return (
+        <div key={index} className={`collectionitem ${index + 1}`}>
+          <div className="imagecollectioncontainer">
+            <img className='imgs' src={item.image} alt={item.title} /> 
+          </div>
+          <div className="collectiondetails">
+            <p className="productcollectiontitle">{item.title}</p>
+            <div className='elipsis'>
+            <p className="productcollectiondesc"><span>{firstWord} <span>{secondWord}</span>... </span>
+            
+            </p>
             </div>
-            <div className='collectionitem two'>
-            <div className='imagecollectioncontainer'></div>
-            <div className='collectiondetails'>
-                    <p className='productcollectiontitle'>Lorem Ipsum</p>
-                    <p className='productcollectiondesc'>consectetur adipiscing elit</p>
-                    <p className='productcollectionprice'>$95</p>
-                </div>
-            </div>
-            <div className='collectionitem three'>
-            <div className='imagecollectioncontainer'></div>
-            <div className='collectiondetails'>
-                    <p className='productcollectiontitle'>Lorem Ipsum</p>
-                    <p className='productcollectiondesc'>consectetur adipiscing elit</p>
-                    <p className='productcollectionprice'>$95</p>
-                </div>
-            </div>
-            <div className='collectionitem four'>
-            <div className='imagecollectioncontainer'></div>
-            <div className='collectiondetails'>
-                    <p className='productcollectiontitle'>Lorem Ipsum</p>
-                    <p className='productcollectiondesc'>consectetur adipiscing elit</p>
-                    <p className='productcollectionprice'>$95</p>
-                </div>
-            </div>
-            <div className='collectionitem five'>
-            <div className='imagecollectioncontainer'></div>
-            <div className='collectiondetails'>
-                    <p className='productcollectiontitle'>Lorem Ipsum</p>
-                    <p className='productcollectiondesc'>consectetur adipiscing elit</p>
-                    <p className='productcollectionprice'>$95</p>
-                </div>
-            </div>
-            <div className='collectionitem six'>
-            <div className='imagecollectioncontainer'></div>
-            <div className='collectiondetails'>
-                    <p className='productcollectiontitle'>Lorem Ipsum</p>
-                    <p className='productcollectiondesc'>consectetur adipiscing elit</p>
-                    <p className='productcollectionprice'>$95</p>
-                </div>
-            </div>
+          
+            <p className="productcollectionprice">${item.price}</p>
+          </div>
+        </div>
+        )})}
+       
         </div>
         </div>
        </section>
 
        <section className='catalog'>
         <div className='catalogcontainer'>
-            <div className='catalogone'>
-                {/*image*/ }
+            <div  className='catalogone'>
+                <img className="imgmen" src={Men} alt="men's catalog"/>
                 <div className='cover'>
-                    {/*show text on hover:
-                    <p>Men's Catalog</p>
-                    */}
                     
+                    <p>Men's <br></br> Catalog</p>
+                   
+                    
+                </div>
+                <div className='arrowcontainer'>
+                 <Link to="/men"><ArrowRightCircleIcon  strokeWidth={1} className='arrow'/></Link>
                 </div>
             </div>
             <div className='catalogtwo'>
-                 {/*image*/ }
-                 <div className='cover'>
-                   {/*show text on hover:
-                    <p>Women's Catalog</p>
-                    */}
+            <img className="imgwomen" src={Women} alt="women's catalog"/>
+            <div className='cover'>
+                  
+                    <p>Women's  <br></br> Catalog</p>
+                  
                  </div>
+                 <div className='arrowcontainer'>
+                  <Link to="/women"><ArrowRightCircleIcon  strokeWidth={1} className='arrow'/></Link>
+                </div>
             </div>
             <div className='catalogthree'>
-                 {/*image*/ }
+            <img className="imgaccessory" src={Accessories} alt="accessories' catalog"/>
                  <div className='cover'>
-                {/*show text on hover:
-                    <p>Accessories' Catalog</p>
-                    */}
+                    <p>Accessories'  <br></br> Catalog</p>
+                    
                  </div>
+                 <div className='arrowcontainer'>
+                  <Link to="/accessory"><ArrowRightCircleIcon strokeWidth={1} className='arrow'/></Link>
+                </div>
             </div>
         </div>
        </section>
-
+       
        <section className='newsletter'>
+       <div className='newscover'> </div>
         <div className='newslettercontainer'>
             <div className='newstitle'>
                 <p>EXCLUSIVE NEWS & CONTENT</p>
@@ -132,9 +143,11 @@ const HomePage = () => {
             <p>Proin fringilla nisi ut nisl consectetur, ut <br></br>
             consectetur eros cursus</p>
             </div>
+           
             <div className='newssignup'>
+            
             <div className='newsinputcontainer'>
-                <input></input>
+                <input className='newsinput'></input>
                 <div className='newsbtncontainer'>
                 <button>
                     <p> Sign Up</p>
@@ -144,7 +157,9 @@ const HomePage = () => {
             </div>
             </div>
         </div>
+       
        </section>
+      
        <Footer/>
 
        </div>
