@@ -12,19 +12,20 @@ const Nav = () =>{
         <>
          <nav>
             <div className='categories'>
-                <li>Men</li>
-                <li>Women</li>
-                <li>Accessories</li>
+                <ul className='categoriesul'>
+                <li><Link to="/men">Men</Link></li>
+                <li><Link to="/women">Women</Link></li>
+                <li><Link to="/accessory">Accessories</Link></li>
+                </ul>
             </div>
             <div className='Logo'>
                 Basiq 
             </div>
             <div className='Links'>
-                <ul>
+                <ul className='linksul'>
                     <li><Link to = "/"><ShoppingBagIcon className='icon bag'/></Link></li>
-                    <li><Link to = "/products"><HeartIcon className='icon heart'/></Link></li>
-                    <Link to = "/cart"><UserIcon className='icon user'/></Link>
-                    
+                    <li><Link to = "/"><HeartIcon className='icon heart'/></Link></li>
+                   <li><Link to = "/signin"><UserIcon className='icon user'/></Link></li>
                 </ul>
             </div>
 
