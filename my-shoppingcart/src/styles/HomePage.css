@@ -121,6 +121,7 @@ nav{
 
 li{
     list-style: none;
+    color: #404040;
    
 }
 
@@ -143,6 +144,16 @@ a{
     width:95%;
     display: flex;
     justify-content: center;
+    color: #404040;
+}
+
+.basiq{
+    color: #404040;
+}
+
+.Logo > a{
+    color: #404040;
+
 }
 
 
@@ -549,6 +560,7 @@ button > p {
     background: #E8E9E9;
     display: grid;
     grid-template-columns: repeat(2,1fr);
+    padding:3em;
 }
 
 .footerlinks{
@@ -650,6 +662,7 @@ transition: all 0.3s ease;
         display: flex !important;
        justify-content: flex-end;
         padding: 1em;
+        
         
     }
     
