@@ -1,14 +1,19 @@
 import './styles/Signup.css'
 import Footer from './Footer';
 import { Link } from "react-router-dom";
+import signup from "./assets/signup.jpg";
 
 const Signup = () => {
     return(
        <>
+       <div className='parent'>
        <div className="signupcontainer">
-        <div className='imagecontainer'></div>
+        <div className='imagecontainer'>
+            <img src={signup} alt="signup" />
+            <div className='signshadow'></div>
+        </div>
         <div className='signupdetailscontainer'>
-            <form>
+            <form className='signcon'>
             <div className='topsign'>
             <h1>Sign Up</h1>
             <p>Lorem ipsum dolor sit amet</p>
@@ -24,7 +29,8 @@ const Signup = () => {
                 <button>Create Account</button>
             </div>
             <div className='tosignin'>
-                <p>Already have an account? <span className='signin'><Link className='in' to='/signin'>Sign In</Link></span></p>
+                <p>Already have an account? </p>
+                <p className='signin'><Link className='in' to='/signin'>Sign In</Link></p>
             </div>
             </form>
            
@@ -32,7 +38,9 @@ const Signup = () => {
 
         </div>
        </div>
+       </div>
        <Footer/>
+      
        </>
     )
 }
