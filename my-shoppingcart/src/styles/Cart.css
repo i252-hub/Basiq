@@ -10,6 +10,10 @@ img{
     max-width: 15%;
 }
 
+.cartItem{
+    position: relative;
+    top:5rem;
+}
 
 
 .itemCart, .cartz{
@@ -22,17 +26,34 @@ img{
 .checkoutContainer{
     display: flex;
     justify-content: flex-end;
-    max-width: 90%;
-    margin-top: 2rem;
+    max-width: 100%;
     padding-bottom: 3rem;
     gap: 1rem;
+    position: relative;
+    top:7rem;
+    margin-right: 6rem;
 }
 
-.checkout, .cancelBtn{
+.checkout, .cancelBtn {
     padding: 8px 14px 8px 14px;
-    background: var(--TextandBtn-color);
+    background: #404040;
+    border:none;
     color: var(--BgandBtntext-color);
     width: 120px;
+}
+
+button{
+    cursor: pointer;
+}
+.wish{
+    padding: 5px 8px 5px 8px;
+    background: #404040;
+    border:none;
+    color: var(--BgandBtntext-color);
+    width: 80px;
+    font-size: 12px;
+    position:relative;
+    top:5px;
 }
 
 .cartz{
@@ -59,11 +80,13 @@ h3{
 
 
 .title{
-    background: var(--TextandBtn-color);
+    background: #404040;
     color: var(--BgandBtntext-color);
     display: flex;
     justify-content: center;
     padding: 1rem;
+    position: relative;
+    top:5rem;
 }
 
 h2{
@@ -96,8 +119,11 @@ h2{
 .totalPrice{
     display: flex;
     justify-content: flex-end;
-    width: 90%;
-    padding-top: 1em;
+    width: 100%;
+    position: relative;
+    top:5rem;
+    padding-top: 1rem;
+    right:6rem;
 }
 
 .price{
