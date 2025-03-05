@@ -2,15 +2,20 @@ body::-webkit-scrollbar {
     display: none; 
   }
 .signupcontainer{
-    width: 100vw;
-    height:100vh;
     display: grid;
+    height:50vh;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1fr 1fr;
 }
 
-.imagecontainer{
-    background: blue;
+
+
+.parent{
+    height:100vh;
+    width:100vh;
 }
+
+
 
 
 
@@ -28,7 +33,7 @@ input{
     border-bottom: 2px solid rgba(76, 73, 73, 0.6);
     font-size: 1.5rem;
     font-family:  'Jomolhari', serif;
-    
+    border: none;
 }
 
 input:focus{
@@ -110,30 +115,37 @@ top: 6rem;
     top: 12em;
     white-space: nowrap;
     position: relative;
-   
+    gap:5px;
+}
+
+.in{
+    font-style: italic;
+}
+
+.imagecontainer{
+    position:relative;
+}
+.signshadow{
+    position: absolute;
+   width:100%;
+   height:100%;
+    background:rgb(241, 239, 239);
+    opacity:30%;
+    bottom:4.5em;
 }
 
 span{
     font-style: italic;
-   display: inline;
- 
-}
-
-.signin{
     position: relative;
-    bottom:1.1rem;
-    left:10.5rem;
-}
-
-.tosignin > p{
-    position: relative;
-    top:10px;
-}
-
-.in{
-    display: inline;
+    top:1px;
     width:3rem;
 }
+
+
+
+
+
+
 
 .topsign > h1{
     font-size: 3em;
