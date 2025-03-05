@@ -1,12 +1,13 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import { CartProvider } from './CartProvider'; 
+import { Provider } from "react-redux";
+import store from "./redux/store";
 import routes from './routes';
 
 const Main = () => {
   return (
-    <CartProvider>
+    <Provider store={store}>
       <Router>
         <Routes>
           {routes.map(({ path, element }, idx) => (
@@ -14,7 +15,7 @@ const Main = () => {
           ))}
         </Routes>
       </Router>
-    </CartProvider>
+    </Provider>
   );
 };
 
