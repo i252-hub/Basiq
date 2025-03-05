@@ -166,15 +166,29 @@ section{
     padding-top: 2rem;
     gap: 1rem;
     padding-bottom: 1rem;
+    position: relative;
+    top:5em;
 }
 
 .desc{
     width: 50%;
 }
 
-.BtnCartContainer, .txt{
+.txt{
+    position: relative;
+    top:3rem;
+    width:100%;
     display: flex;
-    justify-content: flex-end;
+    justify-content: end;
+}
+
+.buttoncon{
+    display: flex;
+    width: 100%;
+    position: relative;
+    top:3rem;
+    justify-content: end;
+    gap:3px;
 }
 
 .txt{
@@ -183,8 +197,9 @@ section{
 }
 
 .BtnCart{
-    background: var(--TextandBtn-color);
+    background: #4C4949;
     color: var(--BgandBtntext-color);
+    border: none;
     padding: 7px 14px 7px 14px;
 }
 
@@ -234,7 +249,7 @@ section{
     }
 
 
-    .BtnCartContainer{
+    .BtnCartContainer, .BtnWishListContainer{
         padding-top: 1rem;
         justify-content: center;
     }
