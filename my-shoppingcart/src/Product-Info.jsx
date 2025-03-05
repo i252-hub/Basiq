@@ -5,8 +5,9 @@ import Nav from "./Nav";
 import Icon from '@mdi/react';
 import { mdiMinus } from '@mdi/js';
 import { mdiPlus } from '@mdi/js';
-import { useCart } from "./useCart";
-
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart, updateCartQuantity } from "./redux/cartSlice";
+import { addToWishlist } from "./redux/wishlistSlice"; 
 
 
 const ProductInfo = () => {
@@ -16,7 +17,25 @@ const ProductInfo = () => {
     const [error, setError] = useState(null);
     const [addedCart, setAddedCart] = useState('');
     const [quantity, setQuantity] = useState(1);
-    const { cart, setCart } = useCart();
+    const dispatch = useDispatch();
+    const cart = useSelector((state) => state.cart);
+
+    const wishlist = useSelector((state) => state.wishlist.wishlist);
+
+function handleAddToWishlist() {
+    const productAdded = {
+        id: productDetail.id,
+        image: productDetail.image,
+        title: productDetail.title,
+        price: productDetail.price
+    };
+
+    const isAlreadyInWishlist = wishlist.some(item => item.id === productDetail.id);
+    if (!isAlreadyInWishlist) {
+        dispatch(addToWishlist(productAdded)); 
+    }
+}
+
     useEffect(() => {
         fetch(`https://fakestoreapi.com/products/${id}`)
           .then((response) => response.json())
@@ -30,6 +49,11 @@ const ProductInfo = () => {
           });
       }, [id]); 
 
+      useEffect(() => {
+        localStorage.setItem("cart", JSON.stringify(cart.cart)); 
+    }, [cart.cart]); 
+    
+
       function AddedCart(){
         setAddedCart('Added to cart!');
         setTimeout(() => setAddedCart(''), 1000);
@@ -42,14 +66,14 @@ const ProductInfo = () => {
             quantity: quantity
         }
        
-        const itemIndex = cart.findIndex((item) => item.id === productDetail.id);
+        const itemIndex = cart.cart.findIndex((item) => item.id === productDetail.id); 
+
         if (itemIndex >= 0) {
-            const updatedCart = [...cart];
-            updatedCart[itemIndex].quantity += quantity;
-            setCart(updatedCart);
-        } else {
-            setCart([...cart, productAdded]);
-        }
+          dispatch(updateCartQuantity({ id: productDetail.id, quantity: cart.cart[itemIndex].quantity + quantity }));
+      } else {
+          dispatch(addToCart(productAdded));
+      }
+        localStorage.setItem("cart", JSON.stringify(cart.cart));
       }
       function AddQuantityChange() {
         setQuantity((prevQuantity) => prevQuantity + 1); 
@@ -79,8 +103,13 @@ const ProductInfo = () => {
          
           <div className="desc">
           <p>{productDetail.description}</p>
+          <div className="buttoncon">
+          <div className="BtnWishListContainer">
+            <button className="BtnCart" onClick={handleAddToWishlist}>Add to Wishlist</button>
+          </div>
           <div className="BtnCartContainer">
             <button className="BtnCart" onClick={AddedCart}>Add to Cart</button>
+          </div>
           </div>
           <div className="txt">
           {addedCart && <p>{addedCart}</p>}
