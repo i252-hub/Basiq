@@ -7,6 +7,7 @@ import Signin from "./Signin";
 import Men from "./Men";
 import Women from "./Women";
 import Accessory from "./Accessory";
+import Wishlist from "./Wishlist";
 
 const routes = [
     {
@@ -44,6 +45,10 @@ const routes = [
     {
         path: "accessory",
         element: <Accessory />
+    },
+    {
+        path: "wishlist",
+        element: <Wishlist />
     }
 ]
 
