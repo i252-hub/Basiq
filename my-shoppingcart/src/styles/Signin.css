@@ -9,9 +9,11 @@ body::-webkit-scrollbar {
     grid-template-columns: repeat(2, 1fr);
 }
 
-.imagecontainer{
-    background: blue;
-}
+
+
+
+
+
 
 
 
@@ -35,6 +37,7 @@ input{
 input:focus{
     font-size: 1.5em;
     font-family:  'Jomolhari', serif;
+    outline:none;
 
 }
 
@@ -96,7 +99,11 @@ top: 6rem;
 }
 
 
-
+.signcon{
+    width:100%;
+    position: relative;
+    top:6em;
+}
 .tosignup{
     width: 100%;
     display: flex;
