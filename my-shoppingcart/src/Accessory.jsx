@@ -2,12 +2,13 @@ import { useEffect, useState } from 'react';
 import './styles/Products.css';
 import { Link } from "react-router-dom";
 import Nav from './Nav';
-import {PlusIcon} from '@heroicons/react/24/solid'
+import {PlusIcon, XMarkIcon} from '@heroicons/react/24/solid'
 
 const Accessory = () => {
     const [productAccess, setProductsAccess] = useState([]);
     const [error, setError] = useState(null);
     const [isHeadingVisible, setIsHeadingVisible] = useState(false);
+    const [checklist, setChecklist] = useState(false);
 
     useEffect(() => {
             fetch('https://fakestoreapi.com/products', {mode: 'cors'})
@@ -27,6 +28,9 @@ const Accessory = () => {
             return () => clearTimeout(timeoutId);
         }, []);
        
+        const Checklist = () => {
+            setChecklist(true);
+        }
     
     return ( 
        <>
@@ -37,10 +41,49 @@ const Accessory = () => {
          <>
          <div className='productpagementitle'><p>ACCESSORIES`</p></div>
          <div className='sortandfilter'>
+         <div className='filter'>
+        <div className='filtercategory'>
+        <p>PRICE</p>
+        <XMarkIcon  className='iconplus'/>
+        </div>
+        <div className='filtercategory'>
+        <p>RATING</p>
+        <XMarkIcon  className='iconplus'/>
+        </div>
+        <div className='filtercategory'>
+        <p>STOCK</p>
+        <XMarkIcon  className='iconplus'/>
+        </div>
+        </div>
          <div className='sfcontainer'>
              <p>SORT BY</p>
-             <PlusIcon className='iconplus'/>
+             <PlusIcon onClick={Checklist} className='iconplus'/>
          </div>
+
+         {!checklist && (
+            <div className='mencl'>
+                <div className='checkcon'>
+                <input className='cb' type="checkbox" />
+                <label>Price</label>
+                </div>
+               
+            <br />
+            <div className='checkcon'>
+            <input className='cb' type="checkbox" /> 
+            <label>Rating</label>
+                </div>
+
+                <br/>
+
+            <div className='checkcon'>
+            <input className='cb' type="checkbox" /> 
+            <label>Stock</label>
+                </div>
+
+                
+  
+            </div>
+       )}
         </div>
         </>
        }
