@@ -98,10 +98,35 @@ nav{
 }
 
 
+.logmail{
+    position:relative;
+    bottom:3px;
+    font-size: 14px;
+}
 
+.logoutcon{
+    width: 6rem;
+    height: 5rem;
+    background: white;
+    position: absolute;
+    z-index: 50;
+    font-size: 14px;
+    top:3rem;
+    left:90%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border-radius: 1rem;
+   
+}
+
+.logoutcon > p{
+    padding:3px;
+}
 .linksul{
     display: flex;
     justify-content: center;
+    align-items: center;
     gap: 3px;
     z-index: 25;
 
@@ -182,6 +207,21 @@ a{
     position: relative;
     bottom: 8rem;
     display: block;
+}
+
+.close{
+    width:100%;
+    position: relative;
+    bottom:4rem;
+    display:flex;
+    align-items: center;
+    justify-content: end;
+    margin-right:5px;
+}
+.closebtn{
+    width: 1.5rem;
+    height:1.5rem;
+    cursor: pointer;
 }
 
 .pic{
@@ -404,6 +444,8 @@ bottom:1.2rem;
     cursor: pointer;
 }
 
+
+
 .catalogone:hover img,
 .catalogtwo:hover img,
 .catalogthree:hover img {
@@ -494,6 +536,41 @@ z-index: 90;
     border: none;
     border-radius: 2rem;
     z-index: 90;
+    padding-left: 10px;
+}
+
+.modal{
+    position: absolute;
+    width: 45em;
+    height: 20em;
+    left:-8rem;
+    bottom: -3rem;
+    background: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    z-index: 90;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.modal-content{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+
+.md{
+    width: 40%;
+    height: 35%;
+    position:relative;
+}
+
+.title-modal{
+    font-size:2em;
+    color:#e4d999;
 }
 
 .newscover{

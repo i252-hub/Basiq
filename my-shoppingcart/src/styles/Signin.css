@@ -11,7 +11,12 @@ body::-webkit-scrollbar {
 
 
 
-
+.inputcontainer.fir, .inputcontainer.sec{
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    left:4rem;
+}
 
 
 

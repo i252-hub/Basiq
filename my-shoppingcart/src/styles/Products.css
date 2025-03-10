@@ -37,17 +37,30 @@ body{
     margin-left: 1.5rem;
 }
 
-.sfcontainer{
+.sfcontainer, .filtercategory{
     width:8rem;
     height:2.5rem;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap:3px;
     border: 2px solid #4C4949;
     border-radius: 12px;
   
 }
+
+.filtercategory > p{
+    font-size: 1rem;
+}
+
+.sfcontainer{
+    gap:3px;
+}
+
+.filtercategory{
+    gap: 1rem;
+}
+
+
 
 .productListMen .product:nth-child(2) .men,
 .productListMen .product:nth-child(4) .men {
@@ -124,10 +137,15 @@ align-items: center;
     position: relative;
     top:3rem;
     display: flex;
-    justify-content: end;
+    justify-content: space-between;
     align-items: center;
     height:5em;
     border-bottom: 2px solid rgba(76, 73, 73, 0.16);
+}
+
+.filter{
+    display:flex;
+    gap:1rem;
 }
 .iconplus{
     width:1.3rem;
@@ -218,6 +236,41 @@ section{
     width: 14px;
     display: flex;
     justify-content: center;
+}
+
+.mencl{
+    width: 10rem;
+    height: 8rem;
+    padding-top: 2px;
+    background:white;
+    position: absolute;
+    left:88%;
+    top:4rem;
+    z-index: 50;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    display: flex;
+    justify-content: center;
+    align-items:center;
+    flex-direction: column;
+}
+
+.rating{
+    display:flex;
+    align-items: center;
+}
+
+.checkcon{
+    display: grid;
+   grid-template-columns: repeat(2,1fr);
+    width:80%;
+   
+}
+
+.cb{
+    width:3rem;
+    height:1rem;
+    position:relative;
+   
 }
 
 @media screen and (max-width: 480px) {
