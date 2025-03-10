@@ -5,15 +5,23 @@ import Men from './assets/men.jpg'
 import Women from './assets/women.jpg'
 import Accessories from './assets/accessory.jpg'
 import { useEffect, useState } from 'react';
-import { ArrowRightCircleIcon} from '@heroicons/react/24/outline'
+import { ArrowRightCircleIcon, XMarkIcon} from '@heroicons/react/24/outline'
 import { Link } from "react-router-dom";
-
+import modaldesign from './assets/maiil.png';
 
 
 const HomePage = () => {
 const [error, setError] = useState(null);
 const [items, setItems] = useState([]);
-    
+const [news, setNews] = useState("");
+const [modal, setModal] = useState(false);
+
+const OpenModal = () => {
+    setModal(true);
+}
+const HandleNews = (e) => {
+    setNews(e.target.value)
+}
 
 useEffect(() => {
     const fetchItems = async () => {
@@ -97,7 +105,7 @@ useEffect(() => {
 
        <section className='catalog'>
         <div className='catalogcontainer'>
-            <div  className='catalogone'>
+            <div  className='catalogone' id="themen">
                 <img className="imgmen" src={Men} alt="men's catalog"/>
                 <div className='cover'>
                     
@@ -109,7 +117,7 @@ useEffect(() => {
                  <Link to="/men"><ArrowRightCircleIcon  strokeWidth={1} className='arrow'/></Link>
                 </div>
             </div>
-            <div className='catalogtwo'>
+            <div className='catalogtwo' id="thewomen">
             <img className="imgwomen" src={Women} alt="women's catalog"/>
             <div className='cover'>
                   
@@ -120,7 +128,7 @@ useEffect(() => {
                   <Link to="/women"><ArrowRightCircleIcon  strokeWidth={1} className='arrow'/></Link>
                 </div>
             </div>
-            <div className='catalogthree'>
+            <div className='catalogthree' id="accessories">
             <img className="imgaccessory" src={Accessories} alt="accessories' catalog"/>
                  <div className='cover'>
                     <p>Accessories'  <br></br> Catalog</p>
@@ -147,12 +155,31 @@ useEffect(() => {
             <div className='newssignup'>
             
             <div className='newsinputcontainer'>
-                <input className='newsinput'></input>
+                <input 
+                className='newsinput'
+                type="email"
+                value= {news}
+                onChange={HandleNews}
+                ></input>
                 <div className='newsbtncontainer'>
-                <button>
+                <button onClick={OpenModal}>
                     <p> Sign Up</p>
                    </button>
                 </div>
+                {modal && (
+                    <div className="modal">
+                        <div className='close'>
+                            <XMarkIcon onClick={()=> setModal(false)} className='closebtn'/>
+                        </div>
+                        <img className='md' src={modaldesign} />
+                        <div className="modal-content">
+                            <p className="title-modal">Thank you for signing up!</p>
+                            <p>A confirmation letter has been sent to your email.
+                                Check your inbox.
+                            </p>
+                        </div>
+                    </div>
+                )}
                
             </div>
             </div>
