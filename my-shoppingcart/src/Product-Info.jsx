@@ -1,10 +1,9 @@
-import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useEffect, useState, useMemo } from "react";
+import { useParams, useNavigate } from "react-router-dom";
 import './styles/Products.css';
 import Nav from "./Nav";
 import Icon from '@mdi/react';
-import { mdiMinus } from '@mdi/js';
-import { mdiPlus } from '@mdi/js';
+import { mdiMinus, mdiPlus, mdiStar, mdiStarHalfFull, mdiStarOutline} from '@mdi/js';
 import { useDispatch, useSelector } from "react-redux";
 import { addToCart, updateCartQuantity } from "./redux/cartSlice";
 import { addToWishlist } from "./redux/wishlistSlice"; 
@@ -19,8 +18,12 @@ const ProductInfo = () => {
     const [quantity, setQuantity] = useState(1);
     const dispatch = useDispatch();
     const cart = useSelector((state) => state.cart);
+    const user = useSelector((state) => state.auth.user);
+    const navigate = useNavigate();
 
     const wishlist = useSelector((state) => state.wishlist.wishlist);
+
+  
 
 function handleAddToWishlist() {
     const productAdded = {
@@ -34,6 +37,10 @@ function handleAddToWishlist() {
     if (!isAlreadyInWishlist) {
         dispatch(addToWishlist(productAdded)); 
     }
+
+    if(!user){
+      navigate("/signin");
+  }
 }
 
     useEffect(() => {
@@ -65,6 +72,12 @@ function handleAddToWishlist() {
             price: productDetail.price,
             quantity: quantity
         }
+
+        if(!user){
+          navigate("/signin");
+          setAddedCart('');
+          return;
+      }
        
         const itemIndex = cart.cart.findIndex((item) => item.id === productDetail.id); 
 
@@ -79,7 +92,30 @@ function handleAddToWishlist() {
         setQuantity((prevQuantity) => prevQuantity + 1); 
         }
       function RemoveQuantityChange() {
-        setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));            }
+        setQuantity((prevQuantity) => (prevQuantity > 1 ? prevQuantity - 1 : 1));    
+      
+      }
+
+      const renderStars = useMemo(() => (rating) => { 
+        if (!rating) return null; 
+
+        const fullStars = Math.floor(rating);
+        const halfStar = rating - fullStars >= 0.5;
+        const emptyStars = 5 - fullStars - (halfStar ? 1 : 0);
+
+        return (
+            <div className="rating">
+                {[...Array(fullStars)].map((_, index) => (
+                    <Icon key={`full-${index}`} path={mdiStar} size={1} color="#FFD700" />
+                ))}
+                {halfStar && <Icon path={mdiStarHalfFull} size={1} color="#FFD700" />}
+                {[...Array(emptyStars)].map((_, index) => (
+                    <Icon key={`empty-${index}`} path={mdiStarOutline} size={1} color="#FFD700" />
+                ))}
+                <span> ({rating})</span>
+            </div>
+        );
+    },[]);
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error loading product details</p>;
   return (
@@ -92,6 +128,8 @@ function handleAddToWishlist() {
           <div className="product-title-container" >
           <h2 className="product-title">{productDetail.title}</h2>
           </div>
+          {productDetail.rating && renderStars(productDetail.rating.rate)}
+
           <div className="QtyContainer">
             <button className="add" onClick={RemoveQuantityChange}><Icon path={mdiMinus} size={0.5}/></button>
             <p>Quantity: {quantity}</p>
