@@ -1,3 +1,6 @@
+import { Link } from "react-router-dom";
+
+
 const Footer = () =>{
 
     return(
@@ -9,10 +12,10 @@ const Footer = () =>{
                             <p>SERVICE</p>
                         </div>
                         <div>
-                            <p>Shop</p>
+                          <Link to="/"><p>Basiq</p></Link> 
                         </div>
                         <div>
-                            <p>About</p>
+                        <Link to="/men"><p>Shop</p></Link> 
                         </div>
                         <div>
                             <p>Contact Us</p>
