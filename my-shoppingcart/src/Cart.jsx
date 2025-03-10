@@ -1,13 +1,21 @@
 import './styles/Cart.css';
 import Nav from './Nav';
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
 import { removeFromCart, calculateTotal, revertTotal, loadCartFromStorage, syncCartToStorage } from "./redux/cartSlice";
+import { useSelector, useDispatch } from "react-redux";
 
 const Cart = () => {
     const dispatch = useDispatch();
     const { cart, totalPrice, payStatus } = useSelector(state => state.cart);
+    const user = useSelector((state) => state.auth.user);
+    const navigate = useNavigate();
+
+    useEffect(() => {
+        if(!user){
+            navigate("/signin");
+        }
+    }, [user, navigate])
 
     useEffect(() => {
         dispatch(loadCartFromStorage());  
@@ -27,7 +35,7 @@ const Cart = () => {
     
 
     return (
-        <div>
+            <div>
             <Nav />
             <div className="title"><h2>Shopping Cart</h2></div>
 
@@ -84,6 +92,8 @@ const Cart = () => {
                 </div>
             )}
         </div>
+
+       
     );
 };
 
