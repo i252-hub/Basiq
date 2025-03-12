@@ -131,9 +131,9 @@ function handleAddToWishlist() {
           {productDetail.rating && renderStars(productDetail.rating.rate)}
 
           <div className="QtyContainer">
-            <button className="add" onClick={RemoveQuantityChange}><Icon path={mdiMinus} size={0.5}/></button>
+            <button className="add" aria-label="Decrease quantity" onClick={RemoveQuantityChange}><Icon path={mdiMinus} size={0.5}/></button>
             <p>Quantity: {quantity}</p>
-            <button className="subtr"onClick={AddQuantityChange}><Icon path={mdiPlus} size={0.5} /></button>
+            <button className="subtr" aria-label="Increase quantity" onClick={AddQuantityChange}><Icon path={mdiPlus} size={0.5} /></button>
           </div>
           <div className="PriceContainer">
           <p>Price: ${(productDetail.price * quantity).toFixed(2)}</p>
@@ -149,7 +149,7 @@ function handleAddToWishlist() {
             <button className="BtnCart" onClick={AddedCart}>Add to Cart</button>
           </div>
           </div>
-          <div className="txt">
+          <div className="txt" aria-live="polite">
           {addedCart && <p>{addedCart}</p>}
           </div>
           </div>

@@ -40,25 +40,25 @@ useEffect(() => {
 
     return (
         <>
-                <div className='shadow'> </div>
+                <div className='shadow' id="main"> </div>
 
-        <div className='main'>
+        <div className='main' >
         <div className='navconmain'>
         <div className='navcon'>
-        <Navbar/>
+        <Navbar />
         </div>
         </div>
         <div className='textoverlay three'>
         <div className='textoverlay two'>
         <div className='textoverlay one'>
-            <div className='titlehome'>
+            <div className='titlehome' >
                 <p className='textOne'>Ipsum Dolor</p>
             </div>
             <div className='subtitle'>
                 <p className='textTwo'>Lorem ipsum</p>
             </div>
             <div className='shopbtn'>
-                <button className='bttn'>Shop Now</button>
+                <button aria-label="Shop Now" className='bttn'>Shop Now</button>
             </div>
         </div>
         </div>
@@ -106,7 +106,7 @@ useEffect(() => {
        <section className='catalog'>
         <div className='catalogcontainer'>
             <div  className='catalogone' id="themen">
-                <img className="imgmen" src={Men} alt="men's catalog"/>
+                <img className="imgmen"  src={Men} alt="men's catalog"/>
                 <div className='cover'>
                     
                     <p>Men's <br></br> Catalog</p>
@@ -160,6 +160,7 @@ useEffect(() => {
                 type="email"
                 value= {news}
                 onChange={HandleNews}
+                aria-required="true"
                 ></input>
                 <div className='newsbtncontainer'>
                 <button onClick={OpenModal}>
@@ -167,11 +168,11 @@ useEffect(() => {
                    </button>
                 </div>
                 {modal && (
-                    <div className="modal">
+                    <div className="modal"  role="dialog" aria-modal="true" aria-labelledby="modal-title" aria-describedby="modal-desc">
                         <div className='close'>
                             <XMarkIcon onClick={()=> setModal(false)} className='closebtn'/>
                         </div>
-                        <img className='md' src={modaldesign} />
+                        <img className='md' src={modaldesign} alt="Newsletter confirmation image"/>
                         <div className="modal-content">
                             <p className="title-modal">Thank you for signing up!</p>
                             <p>A confirmation letter has been sent to your email.

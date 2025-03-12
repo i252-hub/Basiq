@@ -40,7 +40,7 @@ const Cart = () => {
             <div className="title"><h2>Shopping Cart</h2></div>
 
             {cart.length === 0 ? (
-                <div className="empty-cart">
+                <div className="empty-cart"  aria-live="polite">
                     <p>Your cart is empty</p>
                 </div>
             ) : (
@@ -58,7 +58,7 @@ const Cart = () => {
                                 </div>
                             </Link>
                             <div className="btnDelete">
-                                <button className="delete" onClick={() => dispatch(removeFromCart(item.id))}>
+                                <button className="delete" aria-label={`Remove ${item.title} from cart`} onClick={() => dispatch(removeFromCart(item.id))}>
                                     Remove
                                 </button>
                             </div>

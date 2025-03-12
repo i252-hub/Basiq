@@ -21,6 +21,9 @@
     position: absolute;
     
 }
+
+
+
 .navcon{
     background: red;
     width:100%;
@@ -642,8 +645,9 @@ button > p {
 
 .footerlinks{
     display: grid;
-    grid-template-columns: 25% 25% 70%;
+    grid-template-columns: 25% 25% 50%;
     font-size: 14px;
+    padding-left: 3rem;
 }
 .acc{
     padding-bottom: 1px;
@@ -656,20 +660,62 @@ button > p {
 }
 
 
-.footerlinksone > div{
-    position: relative;
-    left:5rem;
+.footerlinksthree{
+    width:100%;
 }
 
-.footerlinkstwo > div{
-    position: relative;
-    left:3rem;
+.termcon{
+    width:35%;
+    height:30em;
+    background:white;
+    position: absolute;
+    z-index: 90;
+    bottom:10em;
+    left:26em;
+    overflow-y: scroll;
+    box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    padding-bottom: 1rem;
 }
 
-.footerlinksthree > div{
-    position: relative;
-    left:2rem;
+.termtitle{
+    font-size: 1.5rem;
+    padding-top:1rem;
+    padding-bottom: 1rem;
 }
+
+.titles{
+    font-size: 1.5rem;
+}
+
+.subtitles{
+    font-size: 1.3rem;
+}
+
+
+.termcon > p{
+    padding-left:2rem;
+}
+
+.termbtn{
+    width:100%;
+    height:10%;
+    display: flex;
+    align-items: center;
+    position: relative;
+    justify-content: space-around;
+    padding-top:10px;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.1);
+   
+}
+
+.terma, .termc{
+    padding: 8px 2rem 8px 2rem;
+    border: none;
+    background: #404040;
+    color:white;
+    border-radius: 5rem;
+}
+
 
 .titlefooterlink{
     padding-bottom: 8px;
@@ -690,6 +736,7 @@ button > p {
     justify-content: center;
     align-items: center;
     font-size: 14px;
+    cursor: pointer;
 }
 
 .copyright{

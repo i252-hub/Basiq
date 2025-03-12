@@ -17,49 +17,49 @@ const Nav = () =>{
          <nav>
             <div className='categories'>
                 <ul className='categoriesul'>
-               <Link to="/men"> <li>Men</li></Link>
-               <Link to="/women"> <li>Women</li></Link>
-               <Link to="/accessory"> <li>Accessories</li></Link>
+               <Link to="/men" aria-label="Men's clothing"> <li>Men</li></Link>
+               <Link to="/women" aria-label="Women's clothing"> <li>Women</li></Link>
+               <Link to="/accessory"aria-label="Accessories"> <li>Accessories</li></Link>
                 </ul>
             </div>
             <div className='Logo'>
-             <Link  to="/">
+             <Link  aria-label="Home"  to="/">
              <p className='basiq'>Basiq</p></Link>   
             </div>
             <div className='Links'>
                 <ul className='linksul'>
-                    <li><Link to = "/cart"><ShoppingBagIcon className='icon bag'/></Link></li>
-                    <li><Link to = "/wishlist"><HeartIcon className='icon heart'/></Link></li>
+                    <li><Link to = "/cart" aria-label="Shopping cart"><ShoppingBagIcon aria-hidden="true" className='icon bag'/></Link></li>
+                    <li><Link to = "/wishlist" aria-label="Wishlist"><HeartIcon aria-hidden="true" className='icon heart'/></Link></li>
                     {user ? (
                         <>
-                        <li className='logmail'>{user.email.replace("@gmail.com", "")}</li>
-                        <div className='logoutcon'>
-                            <p>Account</p>
-                            <p>Settings</p>
-                            <p onClick={() => dispatch(logout())}>Logout</p>
+                        <li className='logmail' aria-label={`Logged in as ${user.email}`}>{user.email.replace("@gmail.com", "")}</li>
+                        <div className='logoutcon' role="menu">
+                            <p role="menuitem">Account</p>
+                            <p role="menuitem">Settings</p>
+                            <p role="menuitem" onClick={() => dispatch(logout())}>Logout</p>
                         </div>
                         </>
                     ): (
-                    <li><Link to = "/signin"><UserIcon className='icon user'/></Link></li>
+                    <li><Link to = "/signin" aria-label="Sign in"><UserIcon aria-hidden="true" className='icon user'/></Link></li>
                     )}
                    
                 </ul>
             </div>
 
        
-        <div className="hamburger" onClick={toggleMenu}>
+        <div className="hamburger" onClick={toggleMenu}  aria-expanded={menuOpen} aria-label="Toggle menu">
         <span className='line'></span>
         <span className='line'></span>
         <span className='line'></span>
            </div>
 
-           <div className={`mobile-menu ${menuOpen ? "open" : ""}`}>
+           <div className={`mobile-menu ${menuOpen ? "open" : ""}`} aria-hidden={!menuOpen}>
 
                     <div className='top'>
                        
-                         <p className='logoo'> Kirsten</p>  
+                         <p className='logoo'> Basiq</p>  
                        
-                        <div className="hamburger close" onClick={toggleMenu}>
+                        <div className="hamburger close" aria-label="Close menu" onClick={toggleMenu}>
                                 <span className='line'></span>
                                 <span className='line'></span>
                                 <span className='line'></span>
@@ -68,9 +68,9 @@ const Nav = () =>{
                   
 
                     <ul className='mobilelink'>
-                        <li><Link to="/">Home</Link></li>
-                        <li><Link to="/products">Products</Link></li>
-                        <li><Link to="/cart">Cart</Link></li>
+                        <li><Link to="/" aria-label="Home">Home</Link></li>
+                        <li><Link to="/products" aria-label="Products">Products</Link></li>
+                        <li><Link to="/cart" aria-label="Cart">Cart</Link></li>
                     </ul>
                    
                 </div>

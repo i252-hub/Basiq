@@ -46,7 +46,7 @@ const handleSignIn = (e) => {
        <>
        <div className="signupcontainer">
         <div className='imagecontainer'>
-            <img src={signin} alt="signin" />
+            <img src={signin} alt="signin"  />
             <div className='signshadow'></div>
         </div>
         <div className='signupdetailscontainer'>
@@ -63,9 +63,10 @@ const handleSignIn = (e) => {
            onChange={(e) => setEmail(e.target.value)}
            required
            className={emailError ? "error-input" : "" }
+           aria-describedby={emailError ? "email-error" : ""}
 
             ></input>
-             {emailError && <p className='error-email'>{emailError}</p>}
+             {emailError && <p className='error-email' aria-live="assertive">{emailError}</p>}
             </div>
             <div className='inputcontainer sec'><input 
            type="password"
@@ -73,18 +74,19 @@ const handleSignIn = (e) => {
            value={password}
            onChange={(e) => setPassword(e.target.value)}
            className={passwordError ? "error-input" : "" }
+           aria-describedby={passwordError ? "password-error" : ""}
            required
 
             ></input>
-            {passwordError && <p className='error-email'>{passwordError}</p>}
+            {passwordError && <p className='error-email' aria-live="assertive">{passwordError}</p>}
             </div>
            
 
             <div className='signbtncontainertwo'>
-                <button type="submit">Sign In</button>
+                <button type="submit" aria-label="Sign in to your account">Sign In</button>
             </div>
             <div className='tosignup'>
-                <p>Already have an account? <span><Link to="/signup">Sign Up</Link></span></p>
+                <p>Already have an account? <span><Link to="/signup" aria-label="Go to Sign Up page">Sign Up</Link></span></p>
             </div>
             </form>
            

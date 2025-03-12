@@ -96,25 +96,25 @@ const Men = () => {
         {checkedFilters.price && (
         <div className='filtercategory price'>
         <p>PRICE</p>
-        <XMarkIcon  className='iconplus'/>
+        <XMarkIcon aria-label="Close filter" className='iconplus'/>
         </div>
         )}
         {checkedFilters.rating && (
         <div className='filtercategory rating'>
         <p>RATING</p>
-        <XMarkIcon  className='iconplus'/>
+        <XMarkIcon aria-label="Close filter" className='iconplus'/>
         </div>
         )}
         {checkedFilters.stock && (
         <div className='filtercategory stock'>
         <p>STOCK</p>
-        <XMarkIcon  className='iconplus'/>
+        <XMarkIcon  aria-label="Close filter" className='iconplus'/>
         </div>
         )}
         </div>
        <div className='sfcontainer'>
            <p>SORT BY</p>
-           <PlusIcon  onClick={Checklist} className='iconplus'/>
+           <PlusIcon  aria-label="Open sort and filter options"  onClick={Checklist} className='iconplus'/>
        </div>
        {checklist && (
             <div className='mencl'>
@@ -164,7 +164,7 @@ const Men = () => {
       </>
        }
        
-        {error && <p>No products found</p>}
+        {error && <p role="alert" aria-live="polite">No products found</p>}
             <div className="productListMen">
                 {filteredProducts.map((product) => (
                     <div key={product.id} className={`product product-${product.id}`}>

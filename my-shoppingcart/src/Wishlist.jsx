@@ -36,7 +36,7 @@ const Wishlist = () => {
             <div className="title"><h2>My Wishlist</h2></div>
 
             {wishlist.length === 0 ? (
-                <div className="empty-cart">
+                <div className="empty-cart" aria-live="polite">
                     <p>Your wishlist is empty</p>
                 </div>
             ) : (
@@ -49,10 +49,10 @@ const Wishlist = () => {
                             <div>
                                 <h3>{item.title}</h3>
                                 <p>Price: ${item.price.toFixed(2)}</p>
-                                <button className="wish" onClick={() => handleAddToCart(item)}>Add to cart</button>
+                                <button className="wish" aria-label={`Add ${item.title} to cart`} onClick={() => handleAddToCart(item)}>Add to cart</button>
                             </div>
                             <div className="btnDelete">
-                                <button className="delete" onClick={() => dispatch(removeFromWishlist(item.id))}>
+                                <button className="delete" aria-label={`Remove ${item.title} from wishlist`} onClick={() => dispatch(removeFromWishlist(item.id))}>
                                     Remove
                                 </button>
                             </div>

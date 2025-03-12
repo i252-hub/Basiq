@@ -71,8 +71,9 @@ const Signup = () => {
             onChange={(e) => setEmail(e.target.value)}
             required
             className={error.email ? "error-input" : "" }
+            aria-describedby={error.email ? "email-error" : ""}
             ></input>
-             {error &&  <p className='error-email'>The email is already registered</p>}
+             {error &&  <p className='error-email' aria-live="assertive">The email is already registered</p>}
             </div>
             <div className='inputcontainer sec'><input 
             placeholder='Create Password'
@@ -82,7 +83,7 @@ const Signup = () => {
             required
             className={pmatch ? "error-input" : "" }
             ></input>
-             {pmatch && <p className='error-text'> The passwords do not match</p>}
+             {pmatch && <p className='error-text' aria-live="assertive"> The passwords do not match</p>}
             </div>
             <div className='inputcontainer thi'><input 
             placeholder='Confirm Password'
@@ -92,7 +93,7 @@ const Signup = () => {
              type= "password"
             className={pmatch ? "error-input" : "" }
             ></input>
-              {pmatch && <p className='error-text'>The passwords do not match</p>}
+              {pmatch && <p className='error-text' aria-live="assertive">The passwords do not match</p>}
             </div>
             
             <div className='inputcontainer for'><input 
@@ -102,18 +103,18 @@ const Signup = () => {
             required
             className={error.phone ? "error-input" : "" }
             ></input>
-            {error &&  <p className='error-email'>The contact is already registered</p>}
+            {error &&  <p className='error-email' aria-live="assertive">The contact is already registered</p>}
 
             </div>
           
 
 
             <div className='signbtncontainer'>
-                <button type="submit">Create Account</button>
+                <button type="submit" aria-label="Create an account">Create Account</button>
             </div>
             <div className='tosignin'>
                 <p>Already have an account? </p>
-                <p className='signin'><Link className='in' to='/signin'>Sign In</Link></p>
+                <p className='signin'><Link className='in' to='/signin' aria-label="Go to Sign In page">Sign In</Link></p>
             </div>
             </form>
            
