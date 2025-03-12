@@ -4,11 +4,13 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { Provider } from "react-redux";
 import store from "./redux/store";
 import routes from './routes';
+import ScrollToSection from "./Section";
 
 const Main = () => {
   return (
     <Provider store={store}>
       <Router>
+      <ScrollToSection />
         <Routes>
           {routes.map(({ path, element }, idx) => (
             <Route key={idx} path={path} element={element} />
