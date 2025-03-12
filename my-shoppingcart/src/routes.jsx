@@ -8,6 +8,7 @@ import Men from "./Men";
 import Women from "./Women";
 import Accessory from "./Accessory";
 import Wishlist from "./Wishlist";
+import Contact from "./Contact"
 
 const routes = [
     {
@@ -49,6 +50,10 @@ const routes = [
     {
         path: "wishlist",
         element: <Wishlist />
+    },
+    {
+        path: "contact",
+        element: <Contact />
     }
 ]
 
