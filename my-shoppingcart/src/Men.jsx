@@ -82,7 +82,12 @@ const Men = () => {
     }, [checklist]);
     
     
-
+    const removeFilter = (filter) => {
+        setCheckedFilters(prev => ({
+            ...prev,
+            [filter]: false 
+        }));
+    };
     return ( 
        <>
        <Nav />
@@ -96,19 +101,19 @@ const Men = () => {
         {checkedFilters.price && (
         <div className='filtercategory price'>
         <p>PRICE</p>
-        <XMarkIcon aria-label="Close filter" className='iconplus'/>
+        <XMarkIcon onClick={() => removeFilter("price")} aria-label="Close filter" className='iconplus'/>
         </div>
         )}
         {checkedFilters.rating && (
         <div className='filtercategory rating'>
         <p>RATING</p>
-        <XMarkIcon aria-label="Close filter" className='iconplus'/>
+        <XMarkIcon onClick={() => removeFilter("rating")} aria-label="Close filter" className='iconplus'/>
         </div>
         )}
         {checkedFilters.stock && (
         <div className='filtercategory stock'>
         <p>STOCK</p>
-        <XMarkIcon  aria-label="Close filter" className='iconplus'/>
+        <XMarkIcon onClick={() => removeFilter("stock")} aria-label="Close filter" className='iconplus'/>
         </div>
         )}
         </div>

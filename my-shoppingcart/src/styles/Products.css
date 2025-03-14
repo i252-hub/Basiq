@@ -273,6 +273,10 @@ section{
    
 }
 
+.iconplus{
+    cursor:pointer;
+}
+
 @media screen and (max-width: 641px) {
 
     .buttoncon{

@@ -9,6 +9,12 @@ const Accessory = () => {
     const [error, setError] = useState(null);
     const [isHeadingVisible, setIsHeadingVisible] = useState(false);
     const [checklist, setChecklist] = useState(false);
+    const [filteredProducts, setFilteredProducts] = useState([]);
+    const [checkedFilters, setCheckedFilters] = useState({
+        price: false,
+        rating: false,
+        stock: false
+    });
 
     useEffect(() => {
             fetch('https://fakestoreapi.com/products', {mode: 'cors'})
@@ -33,6 +39,29 @@ const Accessory = () => {
         }
 
         useEffect(() => {
+            let updatedProducts = [...productAccess];
+    
+            if (checkedFilters.price) {
+                updatedProducts.sort((a, b) => a.price - b.price); 
+            }
+            if (checkedFilters.rating) {
+                updatedProducts.sort((a, b) => b.rating.rate - a.rating.rate); 
+            }
+            if (checkedFilters.stock) {
+                updatedProducts.sort((a, b) => b.rating.count - a.rating.count); 
+            }
+    
+            setFilteredProducts(updatedProducts);
+        }, [checkedFilters, productAccess]);
+    
+
+        const handleCheckboxChange = (filter) => {
+            setCheckedFilters(prev => ({
+                ...prev,
+                [filter]: !prev[filter] 
+            }));
+        };
+        useEffect(() => {
             const handleClickOutside = (event) => {
                 if (checklist && !document.querySelector(".mencl")?.contains(event.target) &&
                     !document.querySelector(".sfcontainer")?.contains(event.target)) {
@@ -46,6 +75,14 @@ const Accessory = () => {
                 document.removeEventListener("mousedown", handleClickOutside);
             };
         }, [checklist]);
+
+        const removeFilter = (filter) => {
+            setCheckedFilters(prev => ({
+                ...prev,
+                [filter]: false 
+            }));
+        };
+        
     
     return ( 
        <>
@@ -57,18 +94,24 @@ const Accessory = () => {
          <div className='productpagementitle'><p>ACCESSORIES`</p></div>
          <div className='sortandfilter'>
          <div className='filter'>
-        <div className='filtercategory'>
+         {checkedFilters.price && (
+        <div className='filtercategory price'>
         <p>PRICE</p>
-        <XMarkIcon aria-label="Close filter"  className='iconplus'/>
+        <XMarkIcon aria-label="Close filter" onClick={() => removeFilter("price")}  className='iconplus'/>
         </div>
+         )}
+           {checkedFilters.rating && (
         <div className='filtercategory rating'>
         <p>RATING</p>
-        <XMarkIcon aria-label="Close filter" className='iconplus'/>
+        <XMarkIcon onClick={() => removeFilter("rating")} aria-label="Close filter" className='iconplus'/>
         </div>
-        <div className='filtercategory'>
+         )}
+          {checkedFilters.stock && (
+        <div className='filtercategory stock'>
         <p>STOCK</p>
-        <XMarkIcon aria-label="Close filter" className='iconplus'/>
+        <XMarkIcon onClick={() => removeFilter("stock")} aria-label="Close filter" className='iconplus'/>
         </div>
+        )}
         </div>
          <div className='sfcontainer'>
              <p>SORT BY</p>
@@ -78,20 +121,29 @@ const Accessory = () => {
          {checklist && (
             <div className='mencl'>
                 <div className='checkcon'>
-                <input className='cb' type="checkbox" />
+                <input className='cb' type="checkbox"
+                 checked={checkedFilters.price}
+                 onChange={() => handleCheckboxChange("price")}
+                 name="price" />
                 <label>Price</label>
                 </div>
                
             <br />
             <div className='checkcon'>
-            <input className='cb' type="checkbox" /> 
+            <input className='cb' type="checkbox"
+            checked={checkedFilters.rating}
+            onChange={() => handleCheckboxChange("rating")}
+            name="rating" /> 
             <label>Rating</label>
                 </div>
 
                 <br/>
 
             <div className='checkcon'>
-            <input className='cb' type="checkbox" /> 
+            <input className='cb' type="checkbox"
+            checked={checkedFilters.stock}
+            onChange={() => handleCheckboxChange("stock")} 
+            name="stock" /> 
             <label>Stock</label>
                 </div>
 
@@ -105,7 +157,7 @@ const Accessory = () => {
         {error && <p role="alert">No products found</p>}
         <div className='flex'>
             <div className="productListAccess">
-                {productAccess.map((product,index) => (
+                {filteredProducts.map((product,index) => (
                     <div key={product.id} className={`product ${index + 1}`}>
                         <div className="accessories">
                         <Link className="accessorylink" to = {`/productinfo/${product.id}`}>
