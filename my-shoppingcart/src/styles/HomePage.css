@@ -117,13 +117,13 @@ nav{
     position: absolute;
     z-index: 50;
     font-size: 14px;
-    top:3rem;
+    top:4rem;
     left:90%;
     display: flex;
     align-items: center;
     flex-direction: column;
     border-radius: 1rem;
-   
+    box-shadow: rgba(0, 0, 0, 0.15) 1.95px 1.95px 2.6px;
 }
 
 .logoutcon > p{
@@ -782,6 +782,19 @@ width:1.5rem;
 
 @media screen and (max-width: 641px) {
 
+    .logmail{
+        right:11rem;
+        top:3px;
+    }
+   
+
+    li.log{
+        padding:0;
+        font-size: 1.5rem !important;
+        width:100%;
+        position: relative;
+       left:3.5rem;
+    }
     .dress{
         width:2rem;
         height:2rem;
@@ -951,6 +964,7 @@ width:1.5rem;
        justify-content: flex-end;
         padding: 1em;
         z-index:1000;
+        align-items: center;
         
     }
     

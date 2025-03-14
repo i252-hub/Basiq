@@ -12,41 +12,54 @@ const Nav = () =>{
     const [menuOpen, setMenuOpen] = useState(false);
     const user = useSelector((state) => state.auth.user);
     const dispatch = useDispatch();
+    const [showLogout, setShowLogout] = useState(false);
+
 
     const toggleMenu = () => {
         setMenuOpen((prev) => !prev);    };
+
+        const toggleLogoutMenu = () => {
+            setShowLogout(prev => !prev); 
+        };
     return (
         <>
          <nav>
             <div className='categories'>
-                <ul className='categoriesul'>
-               <Link to="/men" aria-label="Men's clothing"> <li className="navli">Men</li></Link>
-               <Link to="/women" aria-label="Women's clothing"> <li className="navli">Women</li></Link>
-               <Link to="/accessory"aria-label="Accessories"> <li className="navli">Accessories</li></Link>
-                </ul>
+            {user && (
+                        <>
+                        <li className='logmail'  onClick={toggleLogoutMenu} 
+                style={{ cursor: "pointer" }} aria-label={`Logged in as ${user.email}`}>{user.email.replace("@gmail.com", "")}
+               
+                        </li>
+                
+                    </>
+            )}
             </div>
-            <div className='Logo'>
-             <Link  aria-label="Home"  to="/">
-             <p className='basiq'>Basiq</p></Link>   
-            </div>
+           
             <div className='Links'>
                 <ul className='linksul'>
                     <li><Link to = "/cart" aria-label="Shopping cart"><ShoppingBagIcon aria-hidden="true" className='icon bag'/></Link></li>
                     <li><Link to = "/wishlist" aria-label="Wishlist"><HeartIcon aria-hidden="true" className='icon heart'/></Link></li>
                     {user ? (
                         <>
-                        <li className='logmail' aria-label={`Logged in as ${user.email}`}>{user.email.replace("@gmail.com", "")}</li>
+                        <li className='logmail'  onClick={toggleLogoutMenu} 
+                style={{ cursor: "pointer" }} aria-label={`Logged in as ${user.email}`}>{user.email.replace("@gmail.com", "")}
+               
+                        </li>
+                        {showLogout && (
                         <div className='logoutcon' role="menu">
                             <p role="menuitem">Account</p>
                             <p role="menuitem">Settings</p>
                             <p role="menuitem" onClick={() => dispatch(logout())}>Logout</p>
                         </div>
+                         )}
                         </>
                     ): (
                     <li><Link to = "/signin" aria-label="Sign in"><UserIcon aria-hidden="true" className='icon user'/></Link></li>
-                    )}
                    
+                    )}
                 </ul>
+                    
             </div>
 
        
@@ -60,7 +73,7 @@ const Nav = () =>{
 
                     <div className='top'>
                        
-                         <p className='logoo'> Basiq</p>  
+                      <Link to ="/">  <p className='logoo'> Basiq</p>  </Link> 
                        
                         <div className="hamburger close" aria-label="Close menu" onClick={toggleMenu}>
                                 <span className='line'></span>
@@ -79,7 +92,18 @@ const Nav = () =>{
                         <li><SparklesIcon aria-hidden="true" className='icon sparkle'/><Link to="/women" aria-label="Women"  className='mobilelinkz'>Women</Link></li>
                         <li><BriefcaseIcon aria-hidden="true" className='icon briefcase'/><Link to="/men" aria-label="Men"  className='mobilelinkz'>Men</Link></li>
                         <li><DiamondIcon aria-hidden="true" style={{ width: '24px', color: '#4C4949' }}/><Link to="/accessory" aria-label="Accessory"  className='mobilelinkz'>Accessories</Link></li>
+                      
+                        <li role="menuitem" className='log' onClick={() => dispatch(logout())}>Logout</li>
+                       
+                  
+                   
                     </ul>
+
+                   
+                  
+                   
+               
+                   
                    
                 </div>
            
