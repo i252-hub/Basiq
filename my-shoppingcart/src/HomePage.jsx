@@ -59,7 +59,7 @@ useEffect(() => {
                 <p className='textTwo'>Lorem ipsum</p>
             </div>
             <div className='shopbtn'>
-                <button aria-label="Shop Now" className='bttn'>Shop Now</button>
+               <Link to="/men"><button aria-label="Shop Now" className='bttn'>Shop Now</button></Link> 
             </div>
         </div>
         </div>

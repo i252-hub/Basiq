@@ -25,7 +25,7 @@ const Nav = () =>{
         <>
          <nav>
             <div className='categories'>
-            {user && (
+            {user ? (
                         <>
                         <li className='logmail'  onClick={toggleLogoutMenu} 
                 style={{ cursor: "pointer" }} aria-label={`Logged in as ${user.email}`}>{user.email.replace("@gmail.com", "")}
@@ -33,6 +33,8 @@ const Nav = () =>{
                         </li>
                 
                     </>
+            ): (
+               <Link to="/"> <p className='basiq'>BASIQ</p></Link>
             )}
             </div>
            
