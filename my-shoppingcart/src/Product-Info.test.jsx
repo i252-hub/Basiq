@@ -1,156 +1,134 @@
 import { render, screen, waitFor, fireEvent } from "@testing-library/react";
-import { BrowserRouter, MemoryRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter } from "react-router-dom";
+import { Provider } from "react-redux";
+import configureStore from "redux-mock-store";
+import thunk from "redux-thunk";
 import { vi } from "vitest";
 import ProductInfo from "./ProductInfo";
-import { CartProvider } from "./useCart"; 
+
+const mockStore = configureStore([thunk]);
+
+const mockProduct = {
+  id: 1,
+  title: "Test Product",
+  price: 29.99,
+  description: "This is a test product.",
+  image: "https://via.placeholder.com/150",
+  rating: { rate: 4.5 },
+};
+
+global.fetch = vi.fn(() =>
+  Promise.resolve({
+    json: () => Promise.resolve(mockProduct),
+  })
+);
 
 describe("ProductInfo Component", () => {
+  let store;
+
   beforeEach(() => {
-    vi.resetAllMocks(); 
+    store = mockStore({
+      cart: { cart: [] },
+      wishlist: { wishlist: [] },
+      auth: { user: null },
+    });
+
+    fetch.mockClear();
   });
 
-  it("renders loading state initially", () => {
+  test("renders product details after fetching", async () => {
     render(
-      <CartProvider>
-        <MemoryRouter initialEntries={["/productinfo/1"]}>
-          <Routes>
-            <Route path="/productinfo/:id" element={<ProductInfo />} />
-          </Routes>
-        </MemoryRouter>
-      </CartProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <ProductInfo />
+        </BrowserRouter>
+      </Provider>
     );
 
     expect(screen.getByText("Loading...")).toBeInTheDocument();
+
+    await waitFor(() => expect(screen.getByText("Test Product")).toBeInTheDocument());
+    expect(screen.getByText("$29.99")).toBeInTheDocument();
+    expect(screen.getByText("This is a test product.")).toBeInTheDocument();
   });
 
-  it("renders product details when API fetch succeeds", async () => {
-    const mockProduct = {
-      id: 1,
-      title: "Mock Product",
-      image: "mock.jpg",
-      price: 10.5,
-      description: "Mock product description",
-    };
-
-    global.fetch = vi.fn(() =>
-      Promise.resolve({
-        json: () => Promise.resolve(mockProduct),
-      })
-    );
-
+  test("handles adding to cart", async () => {
     render(
-      <CartProvider>
-        <MemoryRouter initialEntries={["/productinfo/1"]}>
-          <Routes>
-            <Route path="/productinfo/:id" element={<ProductInfo />} />
-          </Routes>
-        </MemoryRouter>
-      </CartProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <ProductInfo />
+        </BrowserRouter>
+      </Provider>
     );
 
-    await waitFor(() => {
-      expect(screen.getByText(mockProduct.title)).toBeInTheDocument();
-      expect(screen.getByText(`Price: $${mockProduct.price.toFixed(2)}`)).toBeInTheDocument();
-      expect(screen.getByText(mockProduct.description)).toBeInTheDocument();
-    });
+    await waitFor(() => screen.getByText("Test Product"));
 
-    expect(screen.getByAltText(mockProduct.title)).toHaveAttribute("src", mockProduct.image);
-    expect(fetch).toHaveBeenCalledTimes(1);
-    expect(fetch).toHaveBeenCalledWith("https://fakestoreapi.com/products/1");
+    const addToCartButton = screen.getByText("Add to Cart");
+    fireEvent.click(addToCartButton);
+
+    await waitFor(() => expect(screen.getByText("Added to cart!")).toBeInTheDocument());
   });
 
-  it("handles API errors gracefully", async () => {
-    global.fetch = vi.fn(() => Promise.reject());
-
+  test("handles adding to wishlist", async () => {
     render(
-      <CartProvider>
-        <MemoryRouter initialEntries={["/productinfo/1"]}>
-          <Routes>
-            <Route path="/productinfo/:id" element={<ProductInfo />} />
-          </Routes>
-        </MemoryRouter>
-      </CartProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <ProductInfo />
+        </BrowserRouter>
+      </Provider>
     );
 
-    await waitFor(() => {
-      expect(screen.getByText("Error loading product details")).toBeInTheDocument();
-    });
+    await waitFor(() => screen.getByText("Test Product"));
+
+    const addToWishlistButton = screen.getByText("Add to Wishlist");
+    fireEvent.click(addToWishlistButton);
+
+
+    const actions = store.getActions();
+    expect(actions).toEqual(
+      expect.arrayContaining([
+        expect.objectContaining({ type: "wishlist/addToWishlist" }),
+      ])
+    );
   });
 
-  it("handles quantity increase and decrease", async () => {
-    const mockProduct = {
-      id: 1,
-      title: "Mock Product",
-      image: "mock.jpg",
-      price: 10.5,
-      description: "Mock product description",
-    };
-
-    global.fetch = vi.fn(() =>
-      Promise.resolve({
-        json: () => Promise.resolve(mockProduct),
-      })
-    );
-
+  test("handles increasing and decreasing quantity", async () => {
     render(
-      <CartProvider>
-        <MemoryRouter initialEntries={["/productinfo/1"]}>
-          <Routes>
-            <Route path="/productinfo/:id" element={<ProductInfo />} />
-          </Routes>
-        </MemoryRouter>
-      </CartProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <ProductInfo />
+        </BrowserRouter>
+      </Provider>
     );
 
-    await waitFor(() => {
-      expect(screen.getByText(mockProduct.title)).toBeInTheDocument();
-    });
+    await waitFor(() => screen.getByText("Test Product"));
 
-    const increaseButton = screen.getByRole("button", { name: /\+/ });
-    const decreaseButton = screen.getByRole("button", { name: /-/ });
-
+    const increaseButton = screen.getByLabelText("Increase quantity");
+    const decreaseButton = screen.getByLabelText("Decrease quantity");
+    
     fireEvent.click(increaseButton);
     expect(screen.getByText("Quantity: 2")).toBeInTheDocument();
 
     fireEvent.click(decreaseButton);
     expect(screen.getByText("Quantity: 1")).toBeInTheDocument();
-
-    fireEvent.click(decreaseButton); 
-    expect(screen.getByText("Quantity: 1")).toBeInTheDocument();
   });
 
-  it("adds product to cart", async () => {
-    const mockProduct = {
-      id: 1,
-      title: "Mock Product",
-      image: "mock.jpg",
-      price: 10.5,
-      description: "Mock product description",
-    };
-
-    global.fetch = vi.fn(() =>
-      Promise.resolve({
-        json: () => Promise.resolve(mockProduct),
-      })
-    );
-
+  test("redirects to login when user is not logged in and tries to add to cart", async () => {
     render(
-      <CartProvider>
-        <MemoryRouter initialEntries={["/productinfo/1"]}>
-          <Routes>
-            <Route path="/productinfo/:id" element={<ProductInfo />} />
-          </Routes>
-        </MemoryRouter>
-      </CartProvider>
+      <Provider store={store}>
+        <BrowserRouter>
+          <ProductInfo />
+        </BrowserRouter>
+      </Provider>
     );
 
-    await waitFor(() => {
-      expect(screen.getByText(mockProduct.title)).toBeInTheDocument();
-    });
+    await waitFor(() => screen.getByText("Test Product"));
 
-    const addToCartButton = screen.getByRole("button", { name: /Add to Cart/ });
+    const addToCartButton = screen.getByText("Add to Cart");
     fireEvent.click(addToCartButton);
 
-    expect(screen.getByText("Added to cart!")).toBeInTheDocument();
+    await waitFor(() => {
+      expect(global.window.location.pathname).toBe("/signin");
+    });
   });
 });

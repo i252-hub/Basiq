@@ -1,74 +1,79 @@
 import { render, screen, waitFor } from "@testing-library/react";
-import { BrowserRouter } from "react-router-dom"; 
+import userEvent from "@testing-library/user-event";
+import { BrowserRouter } from "react-router-dom";
 import { vi } from "vitest";
 import Men from "./Men";
 
+global.fetch = vi.fn(() =>
+  Promise.resolve({
+    json: () =>
+      Promise.resolve([
+        {
+          id: 1,
+          title: "Jacket",
+          category: "men's clothing",
+          image: "jacket.jpg",
+          price: 99.99,
+          rating: { rate: 4.2, count: 15 },
+        },
+        {
+          id: 2,
+          title: "Jeans",
+          category: "men's clothing",
+          image: "jeans.jpg",
+          price: 49.99,
+          rating: { rate: 3.9, count: 8 },
+        },
+      ]),
+  })
+);
+
 describe("Men Component", () => {
   beforeEach(() => {
-    vi.resetAllMocks(); 
+    fetch.mockClear();
   });
 
-  it("renders the heading after timeout", async () => {
+  test("renders Men's Clothing page title", () => {
     render(
       <BrowserRouter>
         <Men />
       </BrowserRouter>
     );
 
-
-    expect(screen.queryByText("Men`s Clothing")).not.toBeInTheDocument();
-
-    await waitFor(() => {
-      expect(screen.getByText("Men`s Clothing")).toBeInTheDocument();
-    });
+    expect(screen.getByText(/MEN`S CLOTHING/i)).toBeInTheDocument();
   });
 
-  it("renders products correctly when API fetch succeeds", async () => {
-    global.fetch = vi.fn(() =>
-      Promise.resolve({
-        json: () =>
-          Promise.resolve([
-            { id: 1, category: "men's clothing", image: "img1.jpg", title: "Shirt" },
-            { id: 2, category: "men's clothing", image: "img2.jpg", title: "Pants" },
-            { id: 3, category: "men's clothing", image: "img3.jpg", title: "Jacket" },
-          ]),
-      })
-    );
-
+  test("fetches and displays men's clothing products", async () => {
     render(
       <BrowserRouter>
         <Men />
       </BrowserRouter>
     );
 
-
-   
-
-    expect(fetch).toHaveBeenCalledTimes(1);
-    expect(fetch).toHaveBeenCalledWith("https://fakestoreapi.com/products", { mode: "cors" });
+    await waitFor(() => expect(screen.getByText(/Jacket/i)).toBeInTheDocument());
+    await waitFor(() => expect(screen.getByText(/Jeans/i)).toBeInTheDocument());
   });
 
-  it("displays an error message when API fetch fails", async () => {
-    global.fetch = vi.fn(() => Promise.reject());
-
+  test("sorts products by price", async () => {
     render(
       <BrowserRouter>
         <Men />
       </BrowserRouter>
     );
 
-    await waitFor(() => {
-      expect(screen.getByText("No products found")).toBeInTheDocument();
-    });
+    const sortByButton = screen.getByText(/SORT BY/i);
+    userEvent.click(sortByButton);
+
+    const priceCheckbox = screen.getByLabelText(/Price/i);
+    userEvent.click(priceCheckbox);
+
+    await waitFor(() =>
+      expect(screen.getByText(/PRICE/i)).toBeInTheDocument()
+    );
   });
 
-  it("renders an empty state when no products match the filter", async () => {
-
-    global.fetch = vi.fn(() =>
-      Promise.resolve({
-        json: () => Promise.resolve([{ id: 1, category: "women's clothing" }]),
-      })
-    );
+  test("displays error message when API fails", async () => {
+    fetch.mockImplementationOnce(() => Promise.reject("API Failure"));
 
     render(
       <BrowserRouter>
@@ -76,9 +81,33 @@ describe("Men Component", () => {
       </BrowserRouter>
     );
 
+    await waitFor(() =>
+      expect(screen.getByRole("alert")).toHaveTextContent("No products found")
+    );
+  });
 
-    await waitFor(() => {
-      expect(screen.queryByAltText("Shirt")).not.toBeInTheDocument();
-    });
+  test("removes applied filter when clicked", async () => {
+    render(
+      <BrowserRouter>
+        <Men />
+      </BrowserRouter>
+    );
+
+    const sortByButton = screen.getByText(/SORT BY/i);
+    userEvent.click(sortByButton);
+
+    const priceCheckbox = screen.getByLabelText(/Price/i);
+    userEvent.click(priceCheckbox);
+
+    await waitFor(() =>
+      expect(screen.getByText(/PRICE/i)).toBeInTheDocument()
+    );
+
+    const removePriceFilter = screen.getByLabelText("Close filter");
+    userEvent.click(removePriceFilter);
+
+    await waitFor(() =>
+      expect(screen.queryByText(/PRICE/i)).not.toBeInTheDocument()
+    );
   });
 });
