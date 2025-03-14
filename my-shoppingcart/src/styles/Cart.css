@@ -135,6 +135,63 @@ h2{
     font-size: 1.5rem;
 }
 
+@media screen and (max-width: 641px) {
+
+    .itemCart > p{
+        position: relative;
+        bottom:1rem;
+        font-size: 1.2rem;
+       
+    }
+    .delete{
+        position: relative;
+        bottom:1rem;
+    }
+
+    .itemCart > h3{
+        width:80%;
+    }
+    .wish{
+        position: relative;
+        top:-2rem;
+        padding: 8px 14px 8px 14px;
+       width:6rem;
+       
+    }
+
+    .itemCart{
+        padding-top: 2rem;
+    }
+
+    
+    .itemCart, .cartItem{
+        flex-direction: column;
+        max-width: 100%;
+        margin:0;
+        align-items: center;
+    }
+
+   
+
+    .delete{
+        margin: 0;
+    }
+
+    .imgContainer{
+        max-width: 35%;
+    }
+
+    .totalPrice, .checkoutContainer{
+        display:flex;
+        justify-content:center;
+    }
+
+    .totalPrice > p, .checkoutContainer > button{
+        right:0;
+        
+    }
+}
+
 @media (min-width: 642px) and (max-width: 1024px) {
     .totalPrice > p, .checkoutContainer > button{
         right:3rem;

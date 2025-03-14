@@ -46,11 +46,9 @@ const Wishlist = () => {
                             <div className="imgContainer">
                                 <img src={item.image} alt={item.title} className="cartImage" />
                             </div>
-                            <div>
                                 <h3>{item.title}</h3>
                                 <p>Price: ${item.price.toFixed(2)}</p>
                                 <button className="wish" aria-label={`Add ${item.title} to cart`} onClick={() => handleAddToCart(item)}>Add to cart</button>
-                            </div>
                             <div className="btnDelete">
                                 <button className="delete" aria-label={`Remove ${item.title} from wishlist`} onClick={() => dispatch(removeFromWishlist(item.id))}>
                                     Remove

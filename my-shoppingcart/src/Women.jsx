@@ -31,6 +31,21 @@ const Women = () => {
         const Checklist = () => {
             setChecklist(true);
         }
+
+        useEffect(() => {
+            const handleClickOutside = (event) => {
+                if (checklist && !document.querySelector(".mencl")?.contains(event.target) &&
+                    !document.querySelector(".sfcontainer")?.contains(event.target)) {
+                    setChecklist(false);
+                }
+            };
+        
+            document.addEventListener("mousedown", handleClickOutside);
+        
+            return () => {
+                document.removeEventListener("mousedown", handleClickOutside);
+            };
+        }, [checklist]);
     
     return ( 
        <>
@@ -59,7 +74,7 @@ const Women = () => {
             <p>SORT BY</p>
             <PlusIcon onClick={Checklist} aria-label="Open sorting options" className='iconplus'/>
         </div>
-        {!checklist && (
+        {checklist && (
             <div className='mencl'>
                 <div className='checkcon'>
                 <input className='cb' type="checkbox" />
