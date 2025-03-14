@@ -197,3 +197,25 @@ span{
     font-size: 1.5em;
    
 }
+
+@media screen and (max-width: 641px) {
+    .inputcontainer.fir, .inputcontainer.sec, .inputcontainer.thi, .inputcontainer.for{
+        left:2.5rem;
+    }
+
+    .signbtncontainer{
+        width:60%;
+        position:relative;
+        left:7rem;
+    }
+    .signupcontainer{
+       display:flex;
+       flex-direction:column;
+       min-height: 150vh;
+    }
+
+    .imagecontainer{
+        height: 50vh !important;
+        width:100%;
+    }
+}

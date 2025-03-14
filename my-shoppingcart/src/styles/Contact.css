@@ -294,9 +294,71 @@ color:white;
     width:100%;
 }
 
+@media screen and (max-width: 641px) {
+
+    .contactinfo, .globecon, .mapcon, .atcon, .phonecon, .contactsocials{
+        padding-left: 0;
+        
+    }
+    .globecon, .mapcon, .atcon, .phonecon,  .contactsocials{
+        display:flex;
+        justify-content: center;
+    }
+
+.contactcontainer{
+    width:105vw;
+    min-height: 190vh;
+    
+}
+
+.cbg, .cdetails{
+    width:100%;
+}
+
+.contactform{
+    position:relative;
+    top:0;
+    width:100%;
+    left:0;
+}
+
+.thefirst{
+    width:80%;
+    position:relative;
+    left:3rem;
+}
+.secondform{
+    width:72.5%;
+    position:relative;
+    left:3rem;
+}
+
+.contacttbtn{
+    width:30%;
+    position:relative;
+    left:9rem;
+}
+
+.contactinput, .secondform >textarea{
+    width:100%;
+}
+
+.cdetails{
+    padding-bottom: 1rem;
+}
+.crel{
+    flex-direction: column;
+}
+.secondcontactcon{
+    display:none;
+}
+
+
+}
+
 @media (min-width: 642px) and (max-width: 1024px) {
    
-
+  
     .thefirst, .secondform{
         width:110%;
         left:-1rem;

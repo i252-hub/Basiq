@@ -16,7 +16,7 @@ div{
     align-items: center;
    
 }
-.signupcontainer{
+.signincontainer{
     display: grid;
     width:100%;
     height:100%;
@@ -161,4 +161,26 @@ span{
 }
 .topsign > p{
     font-size: 1.5em;
+}
+
+@media screen and (max-width: 641px) {
+    .inputcontainer.fir, .inputcontainer.sec{
+        left:2.5rem;
+    }
+
+    .signbtncontainertwo{
+        width:50%;
+        position:relative;
+        left:8rem;
+    }
+    .signincontainer{
+       display:flex;
+       flex-direction:column;
+       min-height: 120vh;
+    }
+
+    .imagecontainer{
+        height: 50vh !important;
+        width:100%;
+    }
 }

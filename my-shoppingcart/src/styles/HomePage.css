@@ -95,6 +95,8 @@ nav{
 }
 
 
+
+
 .categories{
     display: flex;
     font-size: 1.5em;
@@ -626,7 +628,7 @@ button > p {
 }
 
 .footer{
-    position: relative;
+    position: sticky;
     top:15rem;
     width:100%;
     height: 30%;
@@ -780,6 +782,43 @@ width:1.5rem;
 
 @media screen and (max-width: 641px) {
 
+    .dress{
+        width:2rem;
+        height:2rem;
+    }
+    .mobilelink{
+       position: relative;
+       left:6rem;
+      
+    }
+    .mobilelink > li{
+        display:flex;
+        align-items:center;
+        gap:2rem;
+       
+       
+    }
+
+   
+   .hamburger{
+    z-index: 1200;
+   }
+
+    .mobile-menu.open{
+        display: block;
+    }
+
+    .footerlinks, .policylinks{
+        grid-template-columns: repeat(3, 1fr);
+        width:120%;
+        position: relative;
+        right:2rem;
+    }
+    .footerlinkscontainer{
+       display:flex;
+       flex-direction: column;
+       gap:1rem;
+    }
     .close{
         bottom:10rem;
     }
@@ -964,9 +1003,9 @@ width:1.5rem;
         text-align: center;
     }
     
-   /* .mobile-menu ul li {
+    .mobile-menu ul li {
         margin: 20px 0;
-    }*/
+    }
     
     .mobile-menu ul li a {
         text-decoration: none;

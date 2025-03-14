@@ -45,7 +45,7 @@ const handleSignIn = (e) => {
     return(
        <>
        <div className="parentsignup">
-       <div className="signupcontainer">
+       <div className="signincontainer">
         <div className='imagecontainer'>
             <img src={signin} alt="signin"  />
             <div className='signshadow'></div>

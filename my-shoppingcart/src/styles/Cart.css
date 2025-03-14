@@ -153,10 +153,15 @@ h2{
     }
     .wish{
         position: relative;
-        top:-2rem;
         padding: 8px 14px 8px 14px;
        width:6rem;
        
+    }
+
+    .wishh{
+        display:flex;
+        flex-direction: column;
+        align-items: center;
     }
 
     .itemCart{
