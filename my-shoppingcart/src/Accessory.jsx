@@ -46,7 +46,7 @@ const Accessory = () => {
         <p>PRICE</p>
         <XMarkIcon aria-label="Close filter"  className='iconplus'/>
         </div>
-        <div className='filtercategory'>
+        <div className='filtercategory rating'>
         <p>RATING</p>
         <XMarkIcon aria-label="Close filter" className='iconplus'/>
         </div>
@@ -93,7 +93,7 @@ const Accessory = () => {
                 {productAccess.map((product,index) => (
                     <div key={product.id} className={`product ${index + 1}`}>
                         <div className="accessories">
-                        <Link to = {`/productinfo/${product.id}`}>
+                        <Link className="accessorylink" to = {`/productinfo/${product.id}`}>
                         <img src={product.image} alt={product.title} className="accessory" />
                         </Link>
                         

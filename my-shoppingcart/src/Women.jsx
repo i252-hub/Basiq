@@ -46,7 +46,7 @@ const Women = () => {
         <p>PRICE</p>
         <XMarkIcon aria-label="Close filter"  className='iconplus'/>
         </div>
-        <div className='filtercategory'>
+        <div className='filtercategory rating'>
         <p>RATING</p>
         <XMarkIcon aria-label="Close filter" className='iconplus'/>
         </div>

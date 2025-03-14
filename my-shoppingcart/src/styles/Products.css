@@ -273,7 +273,61 @@ section{
    
 }
 
-@media screen and (max-width: 480px) {
+@media screen and (max-width: 641px) {
+    
+            .productListMen .product:nth-child(2) .men,
+        .productListMen .product:nth-child(4) .men {
+            width:65%;
+        }
+
+        .productListMen .product:nth-child(1) .men{
+        width:60%;
+        }
+
+        .productListMen .product:nth-child(3) .men{
+            width:75%;
+        }
+
+
+    .men{
+        width:50%;
+    }
+
+    .mens, .menlink, .womens, .womenlink, .accessories, .accessorylink{
+        display:flex;
+        justify-content: center;
+    }
+
+    .filtercategory.rating > p{
+        position:relative;
+        left:5px;
+    }
+    .sfcontainer{
+     position: relative;
+     left:7rem;
+   
+    }
+    .sfcontainer, .filtercategory{
+        width:6rem;
+        height:2rem;
+    }
+
+    .sfcontainer > p, .filtercategory > p{
+        font-size:14px;
+    }
+
+    
+    .sortandfilter{
+        flex-direction: column-reverse;
+        top:5rem;
+        height:6em;
+        padding-bottom: 1rem;
+    }
+   
+    .mencl{
+        left:55%;
+        top:2.5rem;
+    }
 
     h1{
         font-size: 2rem;
