@@ -17,9 +17,9 @@ const Nav = () =>{
          <nav>
             <div className='categories'>
                 <ul className='categoriesul'>
-               <Link to="/men" aria-label="Men's clothing"> <li>Men</li></Link>
-               <Link to="/women" aria-label="Women's clothing"> <li>Women</li></Link>
-               <Link to="/accessory"aria-label="Accessories"> <li>Accessories</li></Link>
+               <Link to="/men" aria-label="Men's clothing"> <li className="navli">Men</li></Link>
+               <Link to="/women" aria-label="Women's clothing"> <li className="navli">Women</li></Link>
+               <Link to="/accessory"aria-label="Accessories"> <li className="navli">Accessories</li></Link>
                 </ul>
             </div>
             <div className='Logo'>

@@ -310,3 +310,46 @@ section{
 
 
 
+@media (min-width: 642px) and (max-width: 1024px) {
+    .productinfo{
+        max-width: 30%;
+    }
+    .desc{
+        width: 85%;
+    }
+    .desc > p,  .QtyContainer, .PriceContainer{
+        font-size: 1.2rem;
+    }
+
+    .product-title-container{
+        width:50%;
+        text-align: justify;
+        display: flex;
+        justify-content: center;
+    }
+    .minus, .plus{
+width:20px !important;
+height:20px !important;    }
+
+.QtyContainer > button{
+    width:1.2rem;
+    height:1.2rem;
+}
+.QtyContainer{
+    width:50%;
+    height:1.2rem;
+}
+
+   .rating > span{
+    font-size: 1.2rem;
+   }
+    svg.rate{
+       width:40px;
+       height: 40px;
+    }
+
+    .BtnCart{
+        font-size: 1.2rem;
+    }
+   
+}

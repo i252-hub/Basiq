@@ -106,11 +106,11 @@ function handleAddToWishlist() {
         return (
             <div className="rating">
                 {[...Array(fullStars)].map((_, index) => (
-                    <Icon key={`full-${index}`} path={mdiStar} size={1} color="#FFD700" />
+                    <Icon key={`full-${index}`} path={mdiStar} size={1} color="#FFD700"  className="rate"/>
                 ))}
-                {halfStar && <Icon path={mdiStarHalfFull} size={1} color="#FFD700" />}
+                {halfStar && <Icon path={mdiStarHalfFull} size={1} color="#FFD700"  className="rate"/>}
                 {[...Array(emptyStars)].map((_, index) => (
-                    <Icon key={`empty-${index}`} path={mdiStarOutline} size={1} color="#FFD700" />
+                    <Icon key={`empty-${index}`} path={mdiStarOutline} size={1} color="#FFD700" className="rate"/>
                 ))}
                 <span> ({rating})</span>
             </div>
@@ -131,9 +131,9 @@ function handleAddToWishlist() {
           {productDetail.rating && renderStars(productDetail.rating.rate)}
 
           <div className="QtyContainer">
-            <button className="add" aria-label="Decrease quantity" onClick={RemoveQuantityChange}><Icon path={mdiMinus} size={0.5}/></button>
+            <button className="add" aria-label="Decrease quantity" onClick={RemoveQuantityChange}><Icon path={mdiMinus} size={0.5} className="minus"/></button>
             <p>Quantity: {quantity}</p>
-            <button className="subtr" aria-label="Increase quantity" onClick={AddQuantityChange}><Icon path={mdiPlus} size={0.5} /></button>
+            <button className="subtr" aria-label="Increase quantity" onClick={AddQuantityChange}><Icon path={mdiPlus} size={0.5} className="plus"/></button>
           </div>
           <div className="PriceContainer">
           <p>Price: ${(productDetail.price * quantity).toFixed(2)}</p>

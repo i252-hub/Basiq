@@ -44,6 +44,7 @@ const handleSignIn = (e) => {
 };
     return(
        <>
+       <div className="parentsignup">
        <div className="signupcontainer">
         <div className='imagecontainer'>
             <img src={signin} alt="signin"  />
@@ -93,9 +94,11 @@ const handleSignIn = (e) => {
             
 
         </div>
+       
+       </div>
+     
        </div>
        <Footer/>
-       
        </>
     )
 }

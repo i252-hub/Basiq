@@ -49,7 +49,7 @@ const Signup = () => {
     }
     return(
        <>
-       <div className='parent'>
+       <div className='parentsignup'>
        <div className="signupcontainer">
         <div className='imagecontainer'>
             <img src={signup} alt="signup" />
@@ -123,7 +123,7 @@ const Signup = () => {
         </div>
        </div>
        </div>
-       <Footer/>
+      <Footer/>
       
        </>
     )

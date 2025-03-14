@@ -466,12 +466,12 @@ Generated using Free Privacy Policy Generator
                     <div className="titlefooterlink">
                             <p>SOCIAL</p>
                         </div>
-                        <div>
+                        <div className="socialthree">
                        <p className="fb"> <a href="https://www.facebook.com/">Facebook</a></p>
                         </div>
-                        <div>
+                        <div className="socialthree">
                         <a href="https://www.instagram.com/"><p>Instagram</p></a>
-                        </div>
+                        </div >
                         <div className="footerlinksthreesocial">
                             <p></p>
                         </div>

@@ -31,7 +31,7 @@ img{
     gap: 1rem;
     position: relative;
     top:7rem;
-    margin-right: 6rem;
+   
 }
 
 .checkout, .cancelBtn {
@@ -123,9 +123,24 @@ h2{
     position: relative;
     top:5rem;
     padding-top: 1rem;
+   
+}
+.totalPrice > p, .checkoutContainer > button{
+    position: relative;
     right:6rem;
 }
 
+
 .price{
     font-size: 1.5rem;
+}
+
+@media (min-width: 642px) and (max-width: 1024px) {
+    .totalPrice > p, .checkoutContainer > button{
+        right:3rem;
+    }
+
+    .checkoutContainer{
+        margin-right: 0;
+    }
 }

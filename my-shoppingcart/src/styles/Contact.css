@@ -293,3 +293,46 @@ color:white;
     justify-content: end;
     width:100%;
 }
+
+@media (min-width: 642px) and (max-width: 1024px) {
+   
+
+    .thefirst, .secondform{
+        width:110%;
+        left:-1rem;
+        padding:0;
+       
+    }
+
+    .contactinput{
+        width:100%;
+    }
+
+    textarea{
+        width:90%;
+       
+        
+    }
+
+    .contacttbtn{
+        width:100%;
+        right:1rem;
+    }
+
+    .shadowz{
+        bottom:25rem;
+        width:80%;
+        left:5rem;
+    }
+
+    .contactform{
+        width:95%;
+        left:1rem;
+    }
+
+    .firstsec, .secondsec, .secondform{
+        padding-left: 5%;
+    }
+   
+
+}

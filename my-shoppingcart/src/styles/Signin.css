@@ -1,15 +1,41 @@
-body::-webkit-scrollbar {
-    display: none; 
+::-webkit-scrollbar {
+    display: none;
   }
-
-.signupcontainer{
-    width: 100vw;
-    height:100vh;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
+div{
+    padding:0;
+    margin:0;
+    box-sizing: border-box;
 }
 
 
+.parentsignup{
+     width: 100%;
+     height:100%;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+   
+}
+.signupcontainer{
+    display: grid;
+    width:100%;
+    height:100%;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: 1 1fr;
+    overflow: hidden;
+}
+
+.imagecontainer > img{
+    height: 100%;
+}
+
+.signshadow{
+    position: absolute;
+   width:100%;
+   height:100%;
+    background:rgb(241, 239, 239);
+    opacity:30%;
+}
 
 .inputcontainer.fir, .inputcontainer.sec{
     display: flex;
@@ -108,6 +134,14 @@ top: 6rem;
     width:100%;
     position: relative;
     top:6em;
+}
+
+.imagecontainer{
+    width:105.5%;
+}
+
+.signupdetailscontainer{
+    position:relative;
 }
 .tosignup{
     width: 100%;

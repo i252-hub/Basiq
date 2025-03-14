@@ -42,7 +42,8 @@ useEffect(() => {
         <>
                 <div className='shadow' id="main"> </div>
 
-        <div className='main' >
+        <div className='main'>
+      
         <div className='navconmain'>
         <div className='navcon'>
         <Navbar />
@@ -63,6 +64,7 @@ useEffect(() => {
         </div>
         </div>
         </div>
+        <div className="mobile">   </div>
         <div className='pic'>
         </div>
        
