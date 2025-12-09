@@ -651,7 +651,7 @@ button > p {
 
 @media(max-width:767px){
     .footer{
-        height:50%;
+        height:50% !important;
     }
 }
 
