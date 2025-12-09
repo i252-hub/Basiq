@@ -649,6 +649,12 @@ button > p {
     background: #333;
 }
 
+@media(max-width:767px){
+    .footer{
+        height:50%;
+    }
+}
+
 .footerlinks, .copyright{
     width:100%;
 }
