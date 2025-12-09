@@ -42,6 +42,7 @@ nav{
     align-content: center;
     align-self: center;
     position:absolute;
+    margin-top: 5rem;
 }
 
 .textoverlay.one{
@@ -267,6 +268,7 @@ font-size: 1.2rem;
 padding-bottom: 14px;
 position: relative;
 bottom:1.2rem;
+padding-top: 3rem;
 }
 
 .collectionsubtitle{
