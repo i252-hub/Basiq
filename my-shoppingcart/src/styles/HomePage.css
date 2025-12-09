@@ -605,6 +605,12 @@ z-index: 90;
     border-left: 1px solid #333;
 }
 
+@media(max-width:767px){
+    .newsbtncontainer{
+        width:25%;
+    }
+}
+
 .newsbtncontainer > button{
     width: 95%;
     height: 3.9em;
@@ -627,6 +633,12 @@ button > p {
     z-index: 8;
     position: relative;
     top:2px;
+}
+
+@media(max-width:767px){
+    button > p{
+        font-size: 14px;
+    }
 }
 
 .footer{
@@ -853,6 +865,12 @@ width:1.5rem;
     .newsinputcontainer{
         width:90%;
         position: relative;
+    }
+
+    @media(max-width:767px){
+        .newstitle{
+            text-align:center;
+        }
     }
  
     .newstitle > p {
